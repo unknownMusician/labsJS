@@ -1,4 +1,4 @@
-function submit(inputAuthor) {
+function submit(inputSide) {
     let inputView = document.getElementById("input");
     let inputStr = inputView.value;
     if (inputStr == "")
@@ -8,21 +8,23 @@ function submit(inputAuthor) {
     let inputDate = date.toLocaleTimeString().substr(0, 5);
 
     let currentId = getCurrId();
-    localStorage.setItem(`${currentId}msg`, inputStr);
-    localStorage.setItem(`${currentId}time`, inputDate);
-    localStorage.setItem(`${currentId}author`, inputAuthor);
+    let currentUser = getCurrUser();
+    localStorage.setItem(`${currentUser}${currentId}msg`, inputStr);
+    localStorage.setItem(`${currentUser}${currentId}time`, inputDate);
+    localStorage.setItem(`${currentUser}${currentId}side`, inputSide);
     msgTrigger();
-    localStorage.setItem("currId", (currentId + 1).toString());
+    localStorage.setItem(`${currentUser}currId`, (currentId + 1).toString());
 }
 
 function msgTrigger() {
     let currentId = getCurrId()
+    let currentUser = getCurrUser();
     let msgView = document.getElementById("messageView");
     msgView.innerHTML = "";
     for (let i = 0; i <= currentId; i++) {
         let div = document.createElement("div");
-        let inputAuthor = localStorage.getItem(`${i}author`);
-        switch (inputAuthor) {
+        let inputSide = localStorage.getItem(`${currentUser}${i}side`);
+        switch (inputSide) {
             case "right":
                 div.className = "rightMsg";
                 break;
@@ -34,8 +36,8 @@ function msgTrigger() {
         msgText.className = "msgText";
         let msgTime = document.createElement("div");
         msgTime.className = "msgTime";
-        msgText.innerText = localStorage.getItem(`${i}msg`);
-        msgTime.innerText = localStorage.getItem(`${i}time`);
+        msgText.innerText = localStorage.getItem(`${currentUser}${i}msg`);
+        msgTime.innerText = localStorage.getItem(`${currentUser}${i}time`);
         div.appendChild(msgText);
         div.appendChild(msgTime);
         msgView.appendChild(div);
@@ -43,10 +45,17 @@ function msgTrigger() {
 }
 
 function getCurrId() {
-    let currentId = localStorage.getItem("currId");
+    let currentId = localStorage.getItem(`${getCurrUser()}currId`);
     if (currentId == null)
         return 0;
     return parseInt(currentId);
+}
+
+function getCurrUser() {
+    let currentUser = localStorage.getItem("currUser");
+    if (currentUser == null)
+        return "";
+    return currentUser;
 }
 
 function clearMsgs() {
@@ -55,24 +64,13 @@ function clearMsgs() {
 }
 
 function goToChat(name) {
-    switch (name) {
-        case "Hana":
-            window.location.replace("hana.html");
-            break;
-        case "Peter":
-            window.location.replace("peter.html");
-            break;
-        case "Ivan":
-            window.location.replace("ivan.html");
-            break;
-        case "Patricia":
-            window.location.replace("patricia.html");
-            break;
-        case "Henry":
-            window.location.replace("henry.html");
-            break;
-    }
+    localStorage.setItem("currUser", name);
+    document.getElementById("title").innerHTML = name;
+    msgTrigger();
 }
 
+if (getCurrUser() == "")
+    localStorage.setItem("currUser", "Hana");
 
+document.getElementById("title").innerHTML = getCurrUser();
 msgTrigger();

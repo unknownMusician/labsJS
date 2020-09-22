@@ -5,6 +5,28 @@ div {
 body {
     min-width: 700px;
     display: grid;
+    grid-template-rows: fit-content(100px) 1fr;
+}
+
+div.title {
+    width: 200px;
+    height: 100px;
+    font-size: 45pt;
+    text-align: center;
+    vertical-align: middle;
+    float: none;
+    border: 1px solid #9999ee;
+    border-radius: 10px;
+    padding: 0 100px 0 100px;
+    margin: 0 800px 0 800px;
+    background-color: #9999ee;
+}
+
+div.main {
+    width: 1700px;
+    height: 900px;
+    float: none;
+    display: grid;
     grid-template-columns: fit-content(300px) 1fr;
 }
 
@@ -37,20 +59,20 @@ div.chatTitle:hover {
 
 div.view {
     float: left;
-    width: 98%;
+    width: 1500px;
     height: 900px;
     margin-left: 10px;
 }
 
 div.messageView {
-    width: 100%;
+    width: 98.65%;
     height: 90%;
     vertical-align: bottom;
     background-color: #eeeeee;
     font-size: 30pt;
-    padding: 0;
     margin: 0;
     overflow-y: auto;
+    padding: 10px 10px 0 10px;
 }
 
 div.msgText {
@@ -78,14 +100,12 @@ div.toolsView {
 div.leftSubmit {
     height: 100%;
     width: 80px;
-    background-color: aqua;
     float: left
 }
 
 div.input {
     height: 100%;
     width: 100%;
-    background-color: blue;
     text-align: center;
     float: left
 }
@@ -93,7 +113,6 @@ div.input {
 div.rightSubmit {
     height: 100%;
     width: 80px;
-    background-color: aqua;
     float: left;
 }
 

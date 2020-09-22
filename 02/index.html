@@ -2,15 +2,61 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body>
-    <script>
-        window.location.replace("chats/hana.html");
-    </script>
+    <div class="title" id="title">
+
+    </div>
+    <div class="main">
+        <div class="chats" id="chats">
+            <div class="chatTitle" onclick="goToChat('Hana')">
+                Hanna
+            </div>
+            <div class="chatTitle" onclick="goToChat('Peter')">
+                Peter
+            </div>
+            <div class="chatTitle" onclick="goToChat('Ivan')">
+                Ivan
+            </div>
+            <div class="chatTitle" onclick="goToChat('Patricia')">
+                Patricia
+            </div>
+            <div class="chatTitle" onclick="goToChat('Henry')">
+                Henry
+            </div>
+        </div>
+        <div class="view">
+            <div class="messageView" id="messageView">
+
+            </div>
+            <div class="toolsView">
+                <div class="leftSubmit">
+                    <button onclick="submit('left')" class="submit">
+                    &lt;
+                </button>
+                </div>
+                <div class="input">
+                    <input id="input">
+                </div>
+                <div class="rightSubmit">
+                    <button onclick="submit('right')" class="submit">
+                    &gt;
+                </button>
+                </div>
+                <div class="clearButton">
+                    <button onclick="clearMsgs()" class="clearBtn">
+                    clear
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="common.js"></script>
 </body>
 
 </html>
