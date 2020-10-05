@@ -1,23 +1,29 @@
 function submit(inputSide) {
-    let inputView = document.getElementById("input");
+    let inputView = document.getElementById("textInput");
     let inputStr = inputView.value;
     if (inputStr == "")
         return;
+    if (inputStr == "clear") {
+        clearMsgs();
+        inputView.value = "";
+        return;
+    }
     inputView.value = "";
     let date = new Date();
     let inputDate = date.toLocaleTimeString().substr(0, 5);
 
-    let currentId = getCurrId();
+    let currentId = getCurrId(getCurrUser()) + 1;
     let currentUser = getCurrUser();
     localStorage.setItem(`${currentUser}${currentId}msg`, inputStr);
     localStorage.setItem(`${currentUser}${currentId}time`, inputDate);
     localStorage.setItem(`${currentUser}${currentId}side`, inputSide);
-    msgTrigger();
-    localStorage.setItem(`${currentUser}currId`, (currentId + 1).toString());
+
+    localStorage.setItem(`${currentUser}currId`, (currentId).toString());
+    showMessages();
 }
 
-function msgTrigger() {
-    let currentId = getCurrId()
+function showMessages() {
+    let currentId = getCurrId(getCurrUser());
     let currentUser = getCurrUser();
     let msgView = document.getElementById("messageView");
     msgView.innerHTML = "";
@@ -36,18 +42,35 @@ function msgTrigger() {
         msgText.className = "msgText";
         let msgTime = document.createElement("div");
         msgTime.className = "msgTime";
-        msgText.innerText = localStorage.getItem(`${currentUser}${i}msg`);
-        msgTime.innerText = localStorage.getItem(`${currentUser}${i}time`);
+        let msg = localStorage.getItem(`${currentUser}${i}msg`);
+        let time = localStorage.getItem(`${currentUser}${i}time`);
+        msgText.innerText = msg;
+        msgTime.innerText = time;
+        if (i == currentId) {
+            setUserTextNTimeInChats(getCurrUser(), msg, time);
+        }
         div.appendChild(msgText);
         div.appendChild(msgTime);
         msgView.appendChild(div);
     }
 }
 
-function getCurrId() {
-    let currentId = localStorage.getItem(`${getCurrUser()}currId`);
-    if (currentId == null)
-        return 0;
+function setUserTextNTimeInChats(user, text, time) {
+    if (user != null) {
+        if (text != null && time != null) {
+            document.getElementById(`${user}LastMsgText`).innerHTML = text;
+            document.getElementById(`${user}LastMsgTime`).innerHTML = time;
+        } else {
+            document.getElementById(`${user}LastMsgText`).innerHTML = "probably null";
+            document.getElementById(`${user}LastMsgTime`).innerHTML = "probably null";
+        }
+    }
+}
+
+function getCurrId(user) {
+    let currentId = localStorage.getItem(`${user}currId`);
+    if (currentId == null || isNaN(parseInt(currentId)))
+        return -1;
     return parseInt(currentId);
 }
 
@@ -60,17 +83,33 @@ function getCurrUser() {
 
 function clearMsgs() {
     localStorage.clear();
-    msgTrigger();
+    showMessages();
 }
 
 function goToChat(name) {
     localStorage.setItem("currUser", name);
-    document.getElementById("title").innerHTML = name;
-    msgTrigger();
+    document.getElementById("chatTitle").innerHTML = name;
+    window.location.replace(`${window.location.href.substring(0, window.location.href.indexOf("?"))}?chat=${name}`)
+    showMessages();
 }
 
-if (getCurrUser() == "")
-    localStorage.setItem("currUser", "Hana");
+(function onStart() {
+    if (getCurrUser() == "")
+        localStorage.setItem("currUser", "Hana");
 
-document.getElementById("title").innerHTML = getCurrUser();
-msgTrigger();
+    document.getElementById("chatTitle").innerHTML = getCurrUser();
+    document.getElementById(`${getCurrUser()}ShortView`).style = "background-color: #5682a3; color: #ffffff";
+
+    let user = "Hana";
+    setUserTextNTimeInChats(user, localStorage.getItem(`${user}${getCurrId(user)}msg`), localStorage.getItem(`${user}${getCurrId(user)}time`));
+    user = "Peter";
+    setUserTextNTimeInChats(user, localStorage.getItem(`${user}${getCurrId(user)}msg`), localStorage.getItem(`${user}${getCurrId(user)}time`));
+    user = "Ivan";
+    setUserTextNTimeInChats(user, localStorage.getItem(`${user}${getCurrId(user)}msg`), localStorage.getItem(`${user}${getCurrId(user)}time`));
+    user = "Patricia";
+    setUserTextNTimeInChats(user, localStorage.getItem(`${user}${getCurrId(user)}msg`), localStorage.getItem(`${user}${getCurrId(user)}time`));
+    user = "Henry";
+    setUserTextNTimeInChats(user, localStorage.getItem(`${user}${getCurrId(user)}msg`), localStorage.getItem(`${user}${getCurrId(user)}time`));
+
+    showMessages();
+})();

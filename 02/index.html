@@ -9,53 +9,106 @@
 </head>
 
 <body>
-    <div class="title" id="title">
-
-    </div>
+    <div class="space"></div>
     <div class="main">
-        <div class="chats" id="chats">
-            <div class="chatTitle" onclick="goToChat('Hana')">
-                Hanna
+        <div class="titles">
+            <div class="massengerTitle">
+                Massenger
             </div>
-            <div class="chatTitle" onclick="goToChat('Peter')">
-                Peter
-            </div>
-            <div class="chatTitle" onclick="goToChat('Ivan')">
-                Ivan
-            </div>
-            <div class="chatTitle" onclick="goToChat('Patricia')">
-                Patricia
-            </div>
-            <div class="chatTitle" onclick="goToChat('Henry')">
-                Henry
-            </div>
-        </div>
-        <div class="view">
-            <div class="messageView" id="messageView">
+            <div class="chatTitle" id="chatTitle">
 
             </div>
-            <div class="toolsView">
-                <div class="leftSubmit">
-                    <button onclick="submit('left')" class="submit">
-                    &lt;
-                </button>
+        </div>
+        <div class="views">
+
+            <div class="chats" id="chats">
+                <div class="chatsSearch">
+                    <input class="searchInput" id="searchInput">
                 </div>
-                <div class="input">
-                    <input id="input">
+                <div class="chatShortView" onclick="goToChat('Hana')" id="HanaShortView">
+                    <div class="chatShortViewImage">
+                        <img class="avatarImage" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="">
+                    </div>
+                    <div class="chatShortInfo">
+                        <div class="chatShortViewName">Hanna</div>
+                        <div class="chatShortViewMsg">
+                            <div id="HanaLastMsgText" class="chatShortViewMsgText">*msg*</div>
+                            <div id="HanaLastMsgTime" class="chatShortViewMsgTime">15:32</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="rightSubmit">
-                    <button onclick="submit('right')" class="submit">
-                    &gt;
-                </button>
+                <div class="chatShortView" onclick="goToChat('Peter')" id="PeterShortView">
+                    <div class="chatShortViewImage">
+                        <img class="avatarImage" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="">
+                    </div>
+                    <div class="chatShortInfo">
+                        <div class="chatShortViewName">Peter</div>
+                        <div class="chatShortViewMsg">
+                            <div id="PeterLastMsgText" class="chatShortViewMsgText">*msg*</div>
+                            <div id="PeterLastMsgTime" class="chatShortViewMsgTime">15:32</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="clearButton">
-                    <button onclick="clearMsgs()" class="clearBtn">
-                    clear
-                </button>
+                <div class="chatShortView" onclick="goToChat('Ivan')" id="IvanShortView">
+                    <div class="chatShortViewImage">
+                        <img class="avatarImage" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="">
+                    </div>
+                    <div class="chatShortInfo">
+                        <div class="chatShortViewName">Ivan</div>
+                        <div class="chatShortViewMsg">
+                            <div id="IvanLastMsgText" class="chatShortViewMsgText">*msg*</div>
+                            <div id="IvanLastMsgTime" class="chatShortViewMsgTime">15:32</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatShortView" onclick="goToChat('Patricia')" id="PatriciaShortView">
+                    <div class="chatShortViewImage">
+                        <img class="avatarImage" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="">
+                    </div>
+                    <div class="chatShortInfo">
+                        <div class="chatShortViewName">Patricia</div>
+                        <div class="chatShortViewMsg">
+                            <div id="PatriciaLastMsgText" class="chatShortViewMsgText">*msg*</div>
+                            <div id="PatriciaLastMsgTime" class="chatShortViewMsgTime">15:32</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatShortView" onclick="goToChat('Henry')" id="HenryShortView">
+                    <div class="chatShortViewImage">
+                        <img class="avatarImage" src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png" alt="">
+                    </div>
+                    <div class="chatShortInfo">
+                        <div class="chatShortViewName">Henry</div>
+                        <div class="chatShortViewMsg">
+                            <div id="HenryLastMsgText" class="chatShortViewMsgText">*msg*</div>
+                            <div id="HenryLastMsgTime" class="chatShortViewMsgTime">15:32</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view">
+                <div class="messageView" id="messageView">
+
+                </div>
+                <div class="toolsView">
+                    <div class="leftSubmit">
+                        <button onclick="submit('left')" class="submit">
+                        &lt;
+                    </button>
+                    </div>
+                    <div class="input">
+                        <input class="textInput" id="textInput">
+                    </div>
+                    <div class="rightSubmit">
+                        <button onclick="submit('right')" class="submit">
+                        &gt;
+                    </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="space"></div>
     <script src="common.js"></script>
 </body>
 
