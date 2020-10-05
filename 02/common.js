@@ -83,14 +83,13 @@ function getCurrUser() {
 
 function clearMsgs() {
     localStorage.clear();
-    showMessages();
+    window.location.reload();
 }
 
 function goToChat(name) {
     localStorage.setItem("currUser", name);
     document.getElementById("chatTitle").innerHTML = name;
     window.location.replace(`${window.location.href.substring(0, window.location.href.indexOf("?"))}?chat=${name}`)
-    showMessages();
 }
 
 (function onStart() {
