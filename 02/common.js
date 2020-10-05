@@ -81,6 +81,7 @@ function getCurrUser() {
     return currentUser;
 }
 
+
 function clearMsgs() {
     localStorage.clear();
     window.location.reload();
