@@ -61,8 +61,8 @@ function setUserTextNTimeInChats(user, text, time) {
             document.getElementById(`${user}LastMsgText`).innerHTML = text;
             document.getElementById(`${user}LastMsgTime`).innerHTML = time;
         } else {
-            document.getElementById(`${user}LastMsgText`).innerHTML = "probably null";
-            document.getElementById(`${user}LastMsgTime`).innerHTML = "probably null";
+            document.getElementById(`${user}LastMsgText`).innerHTML = "";
+            document.getElementById(`${user}LastMsgTime`).innerHTML = "";
         }
     }
 }
