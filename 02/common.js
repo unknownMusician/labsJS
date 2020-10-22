@@ -93,12 +93,28 @@ function goToChat(name) {
     window.location.replace(`${window.location.href.substring(0, window.location.href.indexOf("?"))}?chat=${name}`)
 }
 
+function sortChats() {
+    let shorts = document.getElementById("shorts");
+    let chatsMap = new Map();
+    chatsMap.set(document.getElementById("HanaShortView").cloneNode(true), document.getElementById("HanaLastMsgTime").innerText);
+    chatsMap.set(document.getElementById("PeterShortView").cloneNode(true), document.getElementById("PeterLastMsgTime").innerText);
+    chatsMap.set(document.getElementById("IvanShortView").cloneNode(true), document.getElementById("IvanLastMsgTime").innerText);
+    chatsMap.set(document.getElementById("PatriciaShortView").cloneNode(true), document.getElementById("PatriciaLastMsgTime").innerText);
+    chatsMap.set(document.getElementById("HenryShortView").cloneNode(true), document.getElementById("HenryLastMsgTime").innerText);
+    shorts.innerHTML = "";
+    chatsMap = new Map([...chatsMap.entries()].sort((a, b) => a[1].localeCompare(b[1])));
+    console.log(chatsMap);
+    chatsMap.forEach((v, k, m) => { shorts.appendChild(k); })
+}
+
 (function onStart() {
     if (getCurrUser() == "")
         localStorage.setItem("currUser", "Hana");
 
     document.getElementById("chatTitle").innerHTML = getCurrUser();
     document.getElementById(`${getCurrUser()}ShortView`).style = "background-color: #5682a3; color: #ffffff";
+
+    sortChats();
 
     let user = "Hana";
     setUserTextNTimeInChats(user, localStorage.getItem(`${user}${getCurrId(user)}msg`), localStorage.getItem(`${user}${getCurrId(user)}time`));
