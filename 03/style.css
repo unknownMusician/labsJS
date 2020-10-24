@@ -99,7 +99,7 @@ h6 {
 }
 
 body {
-    background-color: #ebedee;
+    background-color: #7bbbaa;
 }
 
 header {
@@ -126,8 +126,8 @@ div.header {
     transition: 0.2s;
 }
 
-div#headerBackground {
-    background-color: #7bbbaa;
+div#mainBackground {
+    background-color: #ebedee;
 }
 
 div.header#onImage {
