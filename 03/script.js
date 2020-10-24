@@ -38,7 +38,7 @@ function resetBtns() {
 }
 
 function btnClick(id) {
-    let y = document.getElementsByClassName("segment")[id].getBoundingClientRect().top - document.body.getBoundingClientRect().top - 10;
+    let y = document.getElementsByClassName("segment")[id].getBoundingClientRect().top - document.body.getBoundingClientRect().top - 70;
     windowMover(-document.body.getBoundingClientRect().top, y, 20, 1);
 }
 
