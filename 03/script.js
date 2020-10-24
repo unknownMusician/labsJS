@@ -1,13 +1,11 @@
 function onScrollOrWindowSizeChange() {
     var rect = document.body.getBoundingClientRect();
-    //console.log(rect.top, rect.right, rect.bottom, rect.left);
     document.getElementById("titleImage").style = `transform: translateY(${-rect.top / 3 * 2}px); width: ${Math.min(document.documentElement.clientWidth, 700)}px;`;
     if (-rect.top > 439) {
         document.getElementsByClassName("header")[0].id = "onText";
     } else {
         document.getElementsByClassName("header")[0].id = "onImage";
     }
-    //window.scrollTo()
 }
 
 function menuBtnClick() {
@@ -40,7 +38,7 @@ function resetBtns() {
 }
 
 function btnClick(id) {
-    let y = document.getElementsByClassName("segment")[id].getBoundingClientRect().top - document.body.getBoundingClientRect().top - 65;
+    let y = document.getElementsByClassName("segment")[id].getBoundingClientRect().top - document.body.getBoundingClientRect().top - 10;
     windowMover(-document.body.getBoundingClientRect().top, y, 20, 1);
 }
 
