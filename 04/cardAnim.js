@@ -1,13 +1,13 @@
-function getElements() {
+function getElements(containerId) {
     return {
-        card: document.querySelector(".pizza-card"),
-        container: document.querySelector(".pizza-container"),
+        card: document.querySelector(`#${containerId} .pizza-card`),
+        container: document.getElementById(containerId),
         // todo: set correct parrent
-        title: document.querySelector(".title"),
-        pizza: document.querySelector(".pizza"),
-        purchase: document.querySelector(".purchase button"),
-        ingredients: document.querySelector(".pizza-ingredients h3"),
-        sizes: document.querySelector(".sizes")
+        title: document.querySelector(`#${containerId} .title`),
+        pizza: document.querySelector(`#${containerId} .pizza`),
+        purchase: document.querySelector(`#${containerId} .purchase button`),
+        ingredients: document.querySelector(`#${containerId} .pizza-info h3`),
+        sizes: document.querySelector(`#${containerId} .sizes`)
     }
 }
 
@@ -27,7 +27,7 @@ function setAnimationOut(elements) {
 function setAnimationIn(elements) {
     elements.container.addEventListener('mouseenter', (e) => {
         elements.card.style.transition = 'none';
-
+        console.log("1");
         elements.pizza.style.transform = `translateZ(150px)`;
         elements.title.style.transform = `translateZ(125px)`;
         elements.ingredients.style.transform = `translateZ(100px)`;
@@ -44,14 +44,14 @@ function setAnimationMouse(elements) {
     });
 }
 
-(function start() {
-    const elements = getElements();
+function start(containerId) {
+    const elements = getElements(containerId);
 
     setAnimationMouse(elements);
     setAnimationIn(elements);
     setAnimationOut(elements);
 
-    let sizeButtons = document.querySelectorAll(".sizes button");
+    let sizeButtons = document.querySelectorAll(`#${containerId} .sizes button`);
 
     sizeButtons.forEach(button => {
         button.addEventListener('click', (e) => {
@@ -62,4 +62,33 @@ function setAnimationMouse(elements) {
             button.classList.add("active");
         });
     });;
-})();
+}
+
+export function createCard(id, imgSrc, title, ingredients, discount = 0) {
+    let container = document.getElementById(id);
+    container.classList.add("pizza-container");
+    container.innerHTML =
+        `<div class="pizza-card">` +
+        (discount == 0 ? `` : `<div class="discount-container"><div class="discount">- ${discount}%</div></div>`) +
+        `<div class="pizza">
+        <div class="circle"></div>
+        <img src="${imgSrc}" alt="pizza">
+    </div>
+<div class="pizza-info">
+    <h2 class="title">${title}</h2>
+        <h3>${ingredients}</h3>
+        <div class="sizes">
+            <button>25 cm</button>
+            <button>30 cm</button>
+            <button class="active">35 cm</button>
+            <button>40 cm</button>
+        </div>
+        <div class="purchase">
+            <button>Purchase</button>
+        </div>
+    </div>
+</div>`;
+
+    start(id);
+
+}
