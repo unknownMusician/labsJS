@@ -27,7 +27,6 @@ function setAnimationOut(elements) {
 function setAnimationIn(elements) {
     elements.container.addEventListener('mouseenter', (e) => {
         elements.card.style.transition = 'none';
-        console.log("1");
         elements.pizza.style.transform = `translateZ(100px)`;
         elements.title.style.transform = `translateZ(80px)`;
         elements.ingredients.style.transform = `translateZ(60px)`;

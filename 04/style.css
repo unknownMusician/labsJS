@@ -41,7 +41,7 @@ div.container {
     background-color: black;
 }
 
-.actions {
+.cards {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -65,7 +65,7 @@ div.container {
     border-radius: 30px;
     padding: 0rem 5rem;
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.2);
-    /* overflow: hidden; */
+    background: #fff;
 }
 
 .pizza {
@@ -160,4 +160,48 @@ div.container {
     line-height: 14rem;
     padding-left: 4.5rem;
     color: white;
+}
+
+.actions-background-container-outer {
+    width: 100%;
+    height: 70rem;
+    position: absolute;
+    overflow: hidden;
+}
+
+.actions-background-container-inner {
+    width: 100%;
+    height: 30rem;
+    position: absolute;
+    transform: scale(1.1) translateX(-60px) translateY(250px) rotateZ(-7deg);
+    overflow: hidden;
+}
+
+#actions-background {
+    width: 100vw;
+    height: 200%;
+    /* background: linear-gradient( #e58a1f, transparent); */
+    background-image: url("./img/italy.jpg");
+    background-size: 100%;
+    transform: rotateZ(7deg);
+}
+
+.title-container {
+    margin: 3rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 8rem;
+}
+
+.line {
+    margin-top: 3rem;
+    width: 15%;
+    height: 2px;
+    background-color: #ddd;
 }
