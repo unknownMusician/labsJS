@@ -9,13 +9,13 @@ header {
 
 header h1 {
     font-size: 3vw;
-    line-height: 4vw;
+    line-height: 3vw;
     /* align-items: center;
     justify-content: center; */
 }
 
 header img {
-    width: 5vw;
+    width: 4vw;
     padding: 0.5vw;
 }
 
@@ -60,7 +60,7 @@ div.container {
 
 .pizza-card {
     transform-style: preserve-3d;
-    min-height: 80vh;
+    min-height: 57rem;
     width: 35rem;
     border-radius: 30px;
     padding: 0rem 5rem;
@@ -69,7 +69,7 @@ div.container {
 }
 
 .pizza {
-    min-height: 35vh;
+    min-height: 35rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,6 +133,7 @@ div.container {
 .purchase button {
     width: 100%;
     padding: 1rem 0;
+    margin-bottom: 3.8rem;
     background: #e58a1f;
     border: none;
     color: white;
