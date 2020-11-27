@@ -206,6 +206,7 @@ div.container {
     position: absolute;
     transform: scale(1.1) translateX(-60px) translateY(550px) rotateZ(7deg);
     overflow: hidden;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
 }
 
 #top-background {
@@ -226,8 +227,13 @@ div.container {
     flex-direction: column;
 }
 
+.title-container:after {
+    content: "  •  ";
+    font-size: 4rem;
+    color: #666;
+}
+
 .title-container h1 {
-    padding: 0 20px;
     padding-bottom: 40px;
     border-bottom: 1px solid #ccc;
 }
