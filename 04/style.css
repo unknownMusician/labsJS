@@ -3,8 +3,15 @@
 }
 
 header {
+    width: 100%;
+    position: fixed;
+    top: 0;
     display: grid;
-    grid-template-columns: 5vw 1fr 5vw;
+    grid-template-columns: 4vw 1fr 4vw;
+    z-index: 10;
+    background: white;
+    border-bottom: 2px solid #eee;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.02);
 }
 
 header h1 {
@@ -25,11 +32,17 @@ div.container {
 }
 
 .header-menu-button {
-    width: 4vw;
-    height: 4vw;
+    width: 3vw;
+    height: 3vw;
     margin: 0.5vw;
     border-radius: 50%;
     justify-content: center;
+    background: none;
+    transition: 0.5s;
+}
+
+.header-menu-button:hover {
+    background: #f2f2f2;
 }
 
 .menu-button-anim {
@@ -37,7 +50,7 @@ div.container {
     margin-bottom: 10%;
     margin-left: 25%;
     width: 50%;
-    height: 5%;
+    height: 3px;
     background-color: black;
 }
 
@@ -163,15 +176,15 @@ div.container {
     color: white;
 }
 
-.actions-background-container-outer {
+.background-container-outer {
     width: 100%;
-    height: 70rem;
+    height: 100rem;
     position: absolute;
     overflow: hidden;
 }
 
 .actions-background-container-inner {
-    width: 100%;
+    width: 110%;
     height: 30rem;
     position: absolute;
     transform: scale(1.1) translateX(-60px) translateY(250px) rotateZ(-7deg);
@@ -187,8 +200,25 @@ div.container {
     transform: rotateZ(7deg);
 }
 
+.top-background-container-inner {
+    width: 200%;
+    height: 100rem;
+    position: absolute;
+    transform: scale(1.1) translateX(-60px) translateY(550px) rotateZ(7deg);
+    overflow: hidden;
+}
+
+#top-background {
+    width: 150vw;
+    height: 100%;
+    /* background: linear-gradient( #e58a1f, transparent); */
+    background-image: linear-gradient(to right, #e58a1f, #f54642);
+    background-size: 100%;
+    transform: rotateZ(-7deg) translateY(-250px);
+}
+
 .title-container {
-    margin: 3rem 0;
+    margin: 6rem 0 2rem 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -196,13 +226,61 @@ div.container {
     flex-direction: column;
 }
 
+.title-container h1 {
+    padding: 0 20px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+}
+
 h1 {
     font-size: 8rem;
 }
 
-.line {
-    margin-top: 3rem;
-    width: 15%;
-    height: 2px;
-    background-color: #ddd;
+.footer-text {
+    margin-top: 10rem;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text h2 {
+    padding: 3rem 5rem;
+    font-size: 2rem;
+    z-index: 5;
+    color: white;
+}
+
+h3 a {
+    color: #bbb;
+}
+
+.footer-text h3 {
+    padding: 0.5rem 5rem;
+    font-size: 1.2rem;
+    z-index: 5;
+    color: #888;
+}
+
+footer {
+    width: 100%;
+    height: 30rem;
+}
+
+.footer-background-container-inner {
+    width: 100%;
+    height: 30rem;
+    position: absolute;
+    overflow: hidden;
+}
+
+#footer-background {
+    position: absolute;
+    width: 120vw;
+    height: 30rem;
+    background: #222;
+    transform: rotateZ(7deg) translateX(-10rem) translateY(15rem);
+    border: 2px solid black;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2) inset;
 }

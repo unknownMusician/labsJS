@@ -37,9 +37,14 @@ function setAnimationIn(elements) {
 
 function setAnimationMouse(elements) {
     elements.container.addEventListener('mousemove', (e) => {
-        let xAxis = (window.innerWidth / 2 - e.pageX) / 50;
-        let yAxis = (window.innerHeight / 2 - e.pageY) / 50;
-        elements.card.style.transform = `rotateY(${xAxis}deg) rotateX(${-yAxis}deg)`;
+        let elemTop = elements.container.getBoundingClientRect().top - document.body.getBoundingClientRect().top;
+        let elemBottom = elements.container.getBoundingClientRect().bottom - document.body.getBoundingClientRect().top;
+        let elemLeft = elements.container.getBoundingClientRect().left - document.body.getBoundingClientRect().left;
+        let elemRight = elements.container.getBoundingClientRect().right - document.body.getBoundingClientRect().left;
+
+        let xAxis = (e.pageX - (elemRight + elemLeft) / 2) / 30;
+        let yAxis = (e.pageY - (elemTop + elemBottom) / 2) / 50;
+        elements.card.style.transform = `rotateY(${-xAxis}deg) rotateX(${yAxis}deg)`;
     });
 }
 
