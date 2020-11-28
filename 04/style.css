@@ -31,7 +31,7 @@ div.container {
     border: 1px solid black; */
 }
 
-.header-menu-button {
+#header-menu-button {
     width: 3vw;
     height: 3vw;
     margin: 0.5vw;
@@ -41,7 +41,7 @@ div.container {
     transition: 0.5s;
 }
 
-.header-menu-button:hover {
+#header-menu-button:hover {
     background: #f2f2f2;
 }
 
@@ -51,129 +51,10 @@ div.container {
     margin-left: 25%;
     width: 50%;
     height: 3px;
+}
+
+#header-menu-button .menu-button-anim {
     background-color: black;
-}
-
-.cards {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    background-color: #fff;
-}
-
-.pizza-container {
-    margin: 0 2rem;
-    width: 36rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    perspective: 1000px;
-}
-
-.pizza-card {
-    transform-style: preserve-3d;
-    min-height: 57rem;
-    width: 35rem;
-    border-radius: 30px;
-    padding: 0rem 5rem;
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0 0 50px rgba(0, 0, 0, 0.2);
-    background: #fff;
-}
-
-.pizza {
-    min-height: 35rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s;
-}
-
-.pizza img {
-    margin: 2.3rem;
-    width: 25rem;
-    z-index: 2;
-}
-
-.circle {
-    width: 15rem;
-    height: 15rem;
-    /* background: linear-gradient( to right, rgba(245, 70, 66, 0.75), rgba(8, 83, 156, 0.75)); */
-    position: absolute;
-    border-radius: 50%;
-}
-
-.pizza-info h2 {
-    font-size: 3rem;
-    transition: 0.75s;
-}
-
-.pizza-info h3 {
-    min-height: 10rem;
-    font-size: 1.3rem;
-    padding: 2rem 0;
-    color: #585858;
-    font-weight: light;
-    transition: 1s;
-}
-
-.sizes {
-    display: flex;
-    justify-content: space-between;
-    transition: 1.25s;
-}
-
-.sizes button {
-    padding: 0.5rem 1.4rem;
-    background: none;
-    border: none;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
-    font-weight: bold;
-    color: #585858;
-    transition: 0.1s;
-}
-
-.sizes button.active {
-    background: #585858;
-    color: white;
-}
-
-.purchase {
-    margin-top: 4rem;
-}
-
-.purchase button {
-    width: 100%;
-    padding: 1rem 0;
-    margin-bottom: 3.8rem;
-    background: #e58a1f;
-    border: none;
-    color: white;
-    border-radius: 30px;
-    font-weight: bolder;
-    transition: 1.5s;
-}
-
-.discount-container {
-    position: absolute;
-    width: 30rem;
-    height: 10rem;
-    border-radius: 0 30px 0 0;
-    overflow: hidden;
-}
-
-.discount {
-    position: absolute;
-    width: 20rem;
-    height: 10rem;
-    background: #f54642;
-    transform: translateX(20rem) translatey(-2rem) rotateZ(45deg);
-    font-size: 2.5rem;
-    line-height: 14rem;
-    padding-left: 4.5rem;
-    color: white;
 }
 
 .background-container-outer {
@@ -231,11 +112,13 @@ div.container {
     content: "  •  ";
     font-size: 4rem;
     color: #666;
+    z-index: 1;
 }
 
 .title-container h1 {
     padding-bottom: 40px;
     border-bottom: 1px solid #ccc;
+    z-index: 1;
 }
 
 h1 {
@@ -289,4 +172,130 @@ footer {
     transform: rotateZ(7deg) translateX(-10rem) translateY(15rem);
     border: 2px solid black;
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2) inset;
+}
+
+#sidebar {
+    top: 0px;
+    width: 20%;
+    height: 100%;
+    right: -20%;
+    position: fixed;
+    background-color: #222;
+    z-index: 10;
+    transition: 1s;
+    padding: 0 2rem;
+    border-left: 1px solid #fff;
+}
+
+#sidebar.active {
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+#sidebar button.redirect {
+    margin: 1rem 0;
+    width: 100%;
+    height: 5rem;
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+    color: white;
+    font-size: 2rem;
+    transition: 0.5s;
+}
+
+#sidebar .redirect:hover {
+    border-bottom: 1px solid #888;
+}
+
+#sidebar-menu-button {
+    width: 3vw;
+    height: 3vw;
+    margin: 0.5vw;
+    border-radius: 50%;
+    justify-content: center;
+    background: none;
+    transition: 0.5s;
+}
+
+#sidebar-menu-button:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+#sidebar .menu-button-anim {
+    background: transparent;
+    transition: 1s;
+}
+
+#sidebar.active .menu-button-anim {
+    background-color: white;
+}
+
+#sidebar.active #menu-button-anim1 {
+    transform: rotateZ(45deg) translateY(200%) translateX(20%);
+}
+
+#sidebar.active #menu-button-anim2 {
+    transform: rotateZ(225deg);
+}
+
+#sidebar.active #menu-button-anim3 {
+    transform: rotateZ(-45deg) translateY(-200%) translateX(20%);
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category button {
+    padding: 0.5rem 4rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+    font-weight: bolder;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    transition: 0.5s;
+}
+
+.category button:hover {
+    padding: 0.5rem 6rem;
+}
+
+.category#category1 button {
+    background: #f54642;
+    color: white;
+}
+
+.category#category2 button {
+    background: white;
+    color: #f54642;
+}
+
+.futuristic-background-container-inner {
+    width: 200%;
+    height: 100rem;
+    position: absolute;
+    transform: scale(1.1) translateX(-60px) rotateZ(-7deg) translateY(120px);
+    overflow: hidden;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.background-container-outer#futuristic {
+    transform: translateY(-250px);
+    height: 1600px;
+}
+
+#futuristic-background {
+    background: linear-gradient(#1e317e, #f54642);
+    width: 150vw;
+    height: 200%;
+    background-size: 100%;
+    transform: rotateZ(-7deg) translateY(-250px);
+}
+
+#futuristic-title h1 {
+    color: white;
 }

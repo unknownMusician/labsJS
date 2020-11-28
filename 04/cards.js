@@ -70,6 +70,7 @@ function start(containerId) {
 
 export function createCard(id, imgSrc, title, ingredients, discount = 0) {
     let container = document.getElementById(id);
+    if (container == null) { return; }
     container.classList.add("pizza-container");
     container.innerHTML =
         `<div class="pizza-card">` +
