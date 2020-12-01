@@ -4,7 +4,7 @@
 
 header {
     width: 100%;
-    position: fixed;
+    position: sticky;
     top: 0;
     display: grid;
     grid-template-columns: 4rem 1fr 4rem 4rem;
@@ -80,46 +80,8 @@ header div>div {
     background-color: black;
 }
 
-.background-container-outer {
-    width: 100%;
-    height: 100rem;
-    position: absolute;
-    overflow: hidden;
-}
-
-.actions-background-container-inner {
-    width: 110%;
-    height: 30rem;
-    position: absolute;
-    transform: scale(1.1) translateX(-60px) translateY(250px) rotateZ(-7deg);
-    overflow: hidden;
-}
-
-#actions-background {
-    width: 100vw;
-    height: 200%;
-    /* background: linear-gradient( #e58a1f, transparent); */
-    background-image: url("./img/italy.jpg");
-    background-size: 100%;
-    transform: rotateZ(7deg);
-}
-
-.top-background-container-inner {
-    width: 200%;
-    height: 100rem;
-    position: absolute;
-    transform: scale(1.1) translateX(-60px) translateY(550px) rotateZ(7deg);
-    overflow: hidden;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
-}
-
-#top-background {
-    width: 150vw;
-    height: 100%;
-    /* background: linear-gradient( #e58a1f, transparent); */
-    background-image: linear-gradient(to right, #e58a1f, #f54642);
-    background-size: 100%;
-    transform: rotateZ(-7deg) translateY(-250px);
+#futuristic-title h1 {
+    color: white;
 }
 
 .title-container {
@@ -180,93 +142,6 @@ footer {
     height: 30rem;
 }
 
-.footer-background-container-inner {
-    width: 100%;
-    height: 30rem;
-    position: absolute;
-    overflow: hidden;
-}
-
-#footer-background {
-    position: absolute;
-    width: 120vw;
-    height: 30rem;
-    background: #222;
-    transform: rotateZ(7deg) translateX(-10rem) translateY(15rem);
-    border: 2px solid black;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.2) inset;
-}
-
-#sidebar {
-    top: 0px;
-    width: 20%;
-    height: 100%;
-    right: -20%;
-    position: fixed;
-    background-color: #222;
-    z-index: 10;
-    transition: 1s;
-    padding: 0 2rem;
-    border-left: 1px solid #fff;
-}
-
-#sidebar.active {
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.4);
-}
-
-#sidebar button.redirect {
-    margin: 1rem 0;
-    width: 100%;
-    height: 5rem;
-    background-color: transparent;
-    border-bottom: 1px solid transparent;
-    color: white;
-    font-size: 2rem;
-    transition: 0.5s;
-}
-
-#sidebar .redirect:hover {
-    border-bottom: 1px solid #888;
-}
-
-#sidebar-menu-button {
-    width: 3vw;
-    height: 3vw;
-    margin: 0.5vw;
-    border-radius: 50%;
-    justify-content: center;
-    background: none;
-    transition: 0.5s;
-}
-
-#sidebar-menu-button:hover {
-    background: rgba(255, 255, 255, 0.03);
-}
-
-#sidebar .menu-button-anim {
-    background: transparent;
-    transition: 1s;
-}
-
-#sidebar.active .menu-button-anim {
-    background-color: white;
-}
-
-#sidebar.active #menu-button-anim1 {
-    transform: rotateZ(45deg) translateY(200%) translateX(20%);
-}
-
-#sidebar.active #menu-button-anim2 {
-    transform: rotateZ(225deg);
-}
-
-#sidebar.active #menu-button-anim3 {
-    transform: rotateZ(-45deg) translateY(-200%) translateX(20%);
-}
-
 .category {
     display: flex;
     justify-content: center;
@@ -295,30 +170,4 @@ footer {
 .category#category2 button {
     background: white;
     color: #f54642;
-}
-
-.futuristic-background-container-inner {
-    width: 200%;
-    height: 100rem;
-    position: absolute;
-    transform: scale(1.1) translateX(-60px) rotateZ(-7deg) translateY(120px);
-    overflow: hidden;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.background-container-outer#futuristic {
-    transform: translateY(-250px);
-    height: 1600px;
-}
-
-#futuristic-background {
-    background: linear-gradient(#1e317e, #f54642);
-    width: 150vw;
-    height: 200%;
-    background-size: 100%;
-    transform: rotateZ(-7deg) translateY(-250px);
-}
-
-#futuristic-title h1 {
-    color: white;
 }

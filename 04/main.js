@@ -2,9 +2,9 @@ import { createCard } from "./cards.js";
 import * as pages from "./pages.js";
 
 function parallax() {
-    document.getElementById("actions-background").style.transform = `translateY(${-250 + window.scrollY/4}px) rotateZ(7deg)`;
+    document.querySelector(".actions .background").style.transform = `translateY(${-250 + window.scrollY/4}px) rotateZ(7deg)`;
     window.addEventListener('scroll', e => {
-        document.getElementById("actions-background").style.transform = `translateY(${-250 + window.scrollY/4}px) rotateZ(7deg)`;
+        document.querySelector(".actions .background").style.transform = `translateY(${-250 + window.scrollY/4}px) rotateZ(7deg)`;
     });
 }
 
@@ -56,15 +56,14 @@ function loadCorrectHTML() {
     }
 }
 
-function start() {
-    sidebar();
-    onHashChange();
-}
-
 function onHashChange() {
-    loadCorrectHTML();
+    // loadCorrectHTML(); // todo
     parallax();
     createPizzas();
 }
 
-start();
+(function start() {
+    window.onhashchange = onHashChange; // todo
+    onHashChange();
+    sidebar();
+})()

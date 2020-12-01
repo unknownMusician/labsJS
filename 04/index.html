@@ -8,36 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="cards.css">
+    <link rel="stylesheet" type="text/css" href="background.css">
+    <link rel="stylesheet" type="text/css" href="sidebar.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Medieval Pizza</title>
 </head>
 
 <body>
-    <header>
-        <div>
-            <img src="img/shield.ico" alt="">
-        </div>
-        <div>
-            <h1>medieval pizza</h1>
-        </div>
-        <div>
-            <div>
-                <button id="cart-button" class="menu-button">
-                    <img src="./img/icons/cart.png" alt="">
-                    <div id="cart-counter">2</div>
-                </button>
-            </div>
-        </div>
-        <div>
-            <div>
-                <button id="header-menu-button" class="menu-button">
-                <div class="menu-button-anim" id="menu-button-anim1"></div>
-                <div class="menu-button-anim" id="menu-button-anim2"></div>
-                <div class="menu-button-anim" id="menu-button-anim3"></div>
-                </button>
-            </div>
-        </div>
-    </header>
+
     <section id="sidebar">
         <button id="sidebar-menu-button" class="menu-button">
             <div class="menu-button-anim" id="menu-button-anim1"></div>
@@ -54,76 +32,112 @@
             Cart
         </button>
     </section>
-    <main>
-        <div class="title-container">
-            <h1>Best Classic</h1>
-        </div>
-        <div class="background-container-outer">
-            <div class="actions-background-container-inner">
-                <div id="actions-background"></div>
-            </div>
-        </div>
-        <div class="cards">
-            <div id="pizza1"></div>
-            <div id="pizza2"></div>
-            <div id="pizza3"></div>
-        </div>
-        <div class="category" id="category1">
-            <button>More...</button>
-        </div>
-        <div class="title-container">
-            <h1>Best Fest</h1>
-        </div>
-        <div class="background-container-outer">
-            <div class="top-background-container-inner">
-                <div id="top-background"></div>
-            </div>
-        </div>
-        <div class="cards">
-            <div id="pizza4"></div>
-            <div id="pizza5"></div>
-            <div id="pizza6"></div>
-        </div>
-        <div class="category" id="category2">
-            <button>More...</button>
-        </div>
-        <div class="title-container" id="futuristic-title">
-            <h1>Best Futuristic</h1>
-        </div>
-        <div class="background-container-outer" id="futuristic">
-            <div class="futuristic-background-container-inner">
-                <div id="futuristic-background"></div>
-            </div>
-        </div>
-        <div class="cards">
-            <div id="pizza7"></div>
-            <div id="pizza8"></div>
-            <div id="pizza9"></div>
-        </div>
-        <div class="category" id="category2">
-            <button>More...</button>
-        </div>
-    </main>
-    <footer>
-        <div class="footer-background-container-inner">
-            <div id="footer-background"></div>
-        </div>
-        <div class="footer-text">
+    <section id="main-wrapper">
+        <header>
             <div>
-                <h2>About</h2>
-                <h3><a href="">Menu</a></h3>
-                <h3><a href="">Med info</a></h3>
-                <h3><a href="">Restaurants</a></h3>
-                <h3><a href="">Our app</a></h3>
+                <img src="img/shield.ico" alt="">
             </div>
             <div>
-                <h2>Contacts</h2>
-                <h3>medieval.pizza@gmail.com</h3>
-                <h3>+38 099 370 14 75</h3>
-                <h3><a href="">Facebook</a></h3>
+                <h1>medieval pizza</h1>
             </div>
-        </div>
-    </footer>
+            <div>
+                <div>
+                    <button id="cart-button" class="menu-button">
+                        <img src="./img/icons/cart.png" alt="">
+                        <div id="cart-counter">2</div>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <button id="header-menu-button" class="menu-button">
+                    <div class="menu-button-anim" id="menu-button-anim1"></div>
+                    <div class="menu-button-anim" id="menu-button-anim2"></div>
+                    <div class="menu-button-anim" id="menu-button-anim3"></div>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="actions">
+                <div class="title-container">
+                    <h1>Best Classic</h1>
+                </div>
+                <div class="background-container-outer">
+                    <div class="background-container-inner">
+                        <div class="background"></div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div id="pizza1"></div>
+                    <div id="pizza2"></div>
+                    <div id="pizza3"></div>
+                </div>
+                <div class="category" id="category1">
+                    <button>More...</button>
+                </div>
+            </section>
+            <section class="top">
+                <div class="title-container">
+                    <h1>Best Fest</h1>
+                </div>
+                <div class="background-container-outer">
+                    <div class="background-container-inner">
+                        <div class="background"></div>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div id="pizza4"></div>
+                    <div id="pizza5"></div>
+                    <div id="pizza6"></div>
+                </div>
+                <div class="category" id="category2">
+                    <button>More...</button>
+                </div>
+            </section>
+            <section class="futuristic">
+                <div class="background-container-outer">
+                    <div class="background-container-inner">
+                        <div class="background"></div>
+                    </div>
+                </div>
+                <div class="title-container" id="futuristic-title">
+                    <h1>Best Futuristic</h1>
+                </div>
+                <div class="cards">
+                    <div id="pizza7"></div>
+                    <div id="pizza8"></div>
+                    <div id="pizza9"></div>
+                </div>
+                <div class="category" id="category2">
+                    <button>More...</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-background-container-inner">
+                <div id="footer-background"></div>
+            </div>
+            <div class="footer-text">
+                <div>
+                    <h2>About</h2>
+                    <h3><a href="">Menu</a></h3>
+                    <h3><a href="">Med info</a></h3>
+                    <h3><a href="">Restaurants</a></h3>
+                    <h3><a href="">Our app</a></h3>
+                </div>
+                <div>
+                    <h2>Contacts</h2>
+                    <h3>medieval.pizza@gmail.com</h3>
+                    <h3>+38 099 370 14 75</h3>
+                    <h3><a href="">Facebook</a></h3>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <section id="background">
+
+    </section>
     <script type="module" src="cards.js"></script>
     <script type="module" src="main.js"></script>
 </body>
