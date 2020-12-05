@@ -1,7 +1,9 @@
 import { createCard } from "./cards.js";
 import * as pages from "./pages.js";
+import { db } from "./db.js";
 
 function parallax() {
+    if (document.querySelector(".actions .background") == null) { return; }
     document.querySelector(".actions .background").style.transform = `translateY(${-250 + window.scrollY/4}px) rotateZ(7deg)`;
     window.addEventListener('scroll', e => {
         document.querySelector(".actions .background").style.transform = `translateY(${-250 + window.scrollY/4}px) rotateZ(7deg)`;
@@ -40,6 +42,16 @@ function redirect(hash) {
     onHashChange();
 }
 
+function loadJSON() { // todo: recreate with real db
+    globalObj.db = db;
+}
+
+function generateStatusPage() {
+    let textHTML = ""
+        // ... todo
+    return textHTML;
+}
+
 function loadCorrectHTML() {
     let hash = window.location.hash;
     switch (hash) {
@@ -57,13 +69,17 @@ function loadCorrectHTML() {
 }
 
 function onHashChange() {
+    loadJSON();
     // loadCorrectHTML(); // todo
     parallax();
     createPizzas();
 }
 
+var globalObj = {
+    db: {}
+};
+
 (function start() {
-    window.onhashchange = onHashChange; // todo
     onHashChange();
     sidebar();
 })()

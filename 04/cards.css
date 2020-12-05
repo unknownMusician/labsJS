@@ -2,13 +2,13 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: row;
-    background-color: #fff;
+    flex-wrap: wrap;
 }
 
 .pizza-container {
-    margin: 0 2rem;
+    margin: 4rem 2rem;
     width: 36rem;
     display: flex;
     justify-content: center;
@@ -119,4 +119,17 @@
     line-height: 14rem;
     padding-left: 4.5rem;
     color: white;
+}
+
+.pizza-description {
+    max-width: 80rem;
+    color: #fff;
+    font-size: 4rem;
+    z-index: 2;
+    padding: 0 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #fff;
+    background: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.5));
+    border-radius: 1px;
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
 }

@@ -1,0 +1,53 @@
+.sales {
+    width: 100%;
+    height: 30rem;
+    border-radius: 2rem;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2) inset;
+    overflow: auto;
+}
+
+.sales-container {
+    padding: 70px;
+    top: 0;
+    width: 100%;
+}
+
+.sale {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    border-radius: inherit;
+    grid-template-columns: 50rem 1fr;
+    padding: 2rem;
+    background-color: #555;
+    cursor: pointer;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2) inset;
+}
+
+.sale .image {
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sale .text-container {
+    padding: 0 2rem;
+}
+
+.sale .text-container h2 {
+    padding-bottom: 2rem;
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sale .text-container h3 {
+    padding-bottom: 2rem;
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.single-sale {
+    margin-top: 20rem;
+}

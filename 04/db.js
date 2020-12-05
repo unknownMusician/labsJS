@@ -1,4 +1,4 @@
-{
+export const db = {
     "products": [{
         "url": "vegeterian",
         "productName": "Vegeterian",
