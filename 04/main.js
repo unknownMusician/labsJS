@@ -4,15 +4,17 @@ import { db } from "./db.js";
 import { cart } from "./pages.js";
 
 // todo:
-// - cart page ~
-// - generating pages
-// - improve router
-// - correct json
+// - scroll up
+// - hide sidebar
+// - add pizzas to db
+// - localStorage
 // - load json on server
 //      - fetch
 //      - loader
 // - overlook all the site
-// - regex inputs
+// - cart page
+//      - regex inputs
+// - error/success page
 
 function parallax() {
     if (document.querySelector(".section1 .background") == null) { return; }
