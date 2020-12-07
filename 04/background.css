@@ -3,6 +3,7 @@
     height: 100rem;
     position: absolute;
     overflow: hidden;
+    z-index: -1;
 }
 
 .background-container-inner {
@@ -10,52 +11,54 @@
     height: 30rem;
     position: absolute;
     overflow: hidden;
+    z-index: -1;
 }
 
-.actions .background-container-inner {
+.section1 .background-container-inner {
     transform: scale(1.1) translateX(-60px) translateY(250px) rotateZ(-7deg);
 }
 
-.top .background-container-inner {
+.section2 .background-container-inner {
     width: 200%;
     height: 100rem;
     transform: scale(1.1) translateX(-60px) translateY(550px) rotateZ(7deg);
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.futuristic .background-container-inner {
+.section3 .background-container-inner {
     width: 200%;
-    height: 100rem;
-    transform: scale(1.1) translateX(-60px) rotateZ(-7deg) translateY(120px);
+    height: 150rem;
+    transform: scale(1.1) translateX(-60px) rotateZ(-7deg) translateY(140px);
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.futuristic .background-container-outer {
-    transform: translateY(-20px);
-    height: 1600px;
+.section3 .background-container-outer {
+    transform: translateY(-350px);
+    height: 1800px;
 }
 
 .background {
     height: 220%;
     background-size: 100%;
+    z-index: -1;
 }
 
-.actions .background {
+.section1 .background {
     width: 100vw;
     background-image: url("./img/italy.jpg");
     transform: rotateZ(7deg);
 }
 
-.top .background {
+.section2 .background {
     width: 150vw;
     background-image: linear-gradient(to right, #e58a1f, #f54642);
     transform: rotateZ(-7deg) translateY(-250px);
 }
 
-.futuristic .background {
+.section3 .background {
     width: 160vw;
     background: linear-gradient(#1e317e, #f54642);
-    transform: rotateZ(-7deg) translateY(-250px);
+    transform: rotateZ(7deg) translateY(-250px);
 }
 
 .footer-background-container-inner {

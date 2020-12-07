@@ -1,63 +1,103 @@
 {
-    "products": [{
-        "url": "vegeterian",
-        "productName": "Vegeterian",
-        "productDescription": "Very delicious and perfect for big companies pizza...",
-        "price": 105.05,
-        "image": "pizzas/vegeterian.png",
-        "relatedProductIds": [1, 2, 3],
-        "categoryId": 0
-    }, {
-        "url": "olive",
-        "productName": "Olive",
-        "productDescription": "Very delicious and perfect for big companies pizza...",
-        "price": 125.05,
-        "image": "pizzas/olive.png",
-        "relatedProductIds": [0, 2, 3],
-        "categoryId": 0
-    }, {
-        "url": "mexican",
-        "productName": "Mexican",
-        "productDescription": "Very delicious and perfect for big companies pizza...",
-        "price": 135.05,
-        "image": "pizzas/mexican.png",
-        "relatedProductIds": [0, 1, 3],
-        "categoryId": 1
-    }, {
-        "url": "mexican",
-        "productName": "Mexican",
-        "productDescription": "Very delicious and perfect for big companies pizza...",
-        "price": 155.05,
-        "image": "pizzas/vegeterian.png",
-        "relatedProductIds": [0, 1, 2],
-        "categoryId": 2
-    }],
-    "productsCategories": [{
-        "url": "sales",
-        "name": "Sales",
-        "description": "More details ... ",
-    }, {
-        "url": "best",
-        "name": "Our Best",
-        "description": "More details ... ",
-    }, {
-        "url": "futuristic",
-        "name": "Futuristic",
-        "description": "More details ... ",
-    }],
-    "recommendations": [0, 1, 2, 3],
-    "actions": [{
-        "url": "bring_friend",
-        "name": "Improve your friendship!",
-        "description": "More details ... "
-    }, {
-        "url": "black_friday",
-        "name": "Black Friday here!",
-        "description": "More details ... "
-    }, {
-        "url": "christmas",
-        "name": "It's Christmas time!",
-        "description": "More details ... "
-    }],
+    "products": [
+        {
+            "url": "vegeterian",
+            "productName": "Vegeterian",
+            "productDescription": "Very delicious and perfect for big companies pizza...",
+            "productIngredients": "Olive, Meat, Cheese, Green",
+            "price": 105.05,
+            "image": "img/pizza/vegeterian.png",
+            "relatedProductIds": [
+                1,
+                2,
+                3
+            ],
+            "categoryId": 0
+        },
+        {
+            "url": "olive",
+            "productName": "Olive",
+            "productDescription": "Very delicious and perfect for big companies pizza...",
+            "productIngredients": "Meat, Cheese, Peperoni, Pepper, Tomatoes",
+            "price": 125.05,
+            "image": "img/pizza/olive.png",
+            "relatedProductIds": [
+                0,
+                2,
+                3
+            ],
+            "categoryId": 0
+        },
+        {
+            "url": "mexican",
+            "productName": "Mexican",
+            "productDescription": "Very delicious and perfect for big companies pizza...",
+            "productIngredients": "Camembert, Chevre, Mozzarella, Onions, Parsley",
+            "price": 135.05,
+            "image": "img/pizza/mexican.png",
+            "relatedProductIds": [
+                0,
+                1,
+                3
+            ],
+            "categoryId": 1
+        },
+        {
+            "url": "mexican",
+            "productName": "Mexican",
+            "productDescription": "Very delicious and perfect for big companies pizza...",
+            "productIngredients": "Chicken, Pineapple, Parsley, Onions, Cheese",
+            "price": 155.05,
+            "image": "img/pizza/vegeterian.png",
+            "relatedProductIds": [
+                0,
+                1,
+                2
+            ],
+            "categoryId": 2
+        }
+    ],
+    "productsCategories": [
+        {
+            "url": "sales",
+            "name": "Sales",
+            "description": "More details ... ",
+        },
+        {
+            "url": "best",
+            "name": "Our Best",
+            "description": "More details ... ",
+        },
+        {
+            "url": "futuristic",
+            "name": "Futuristic",
+            "description": "More details ... ",
+        }
+    ],
+    "recommendations": [
+        0,
+        1,
+        2
+    ],
+    "actions": [
+        {
+            "url": "bring_friend",
+            "name": "Improve your friendship!",
+            "description": "More details ... ",
+            "color": "#f54642"
+        },
+        {
+            "url": "black_friday",
+            "name": "Black Friday here!",
+            "description": "More details ... ",
+            "color": "#111111"
+        },
+        {
+            "url": "christmas",
+            "name": "It's Christmas time!",
+            "description": "More details ... ",
+            "color": "blueviolet"
+        }
+    ],
     "orders": []
 }

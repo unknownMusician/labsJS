@@ -1,43 +1,68 @@
-import { createCard } from "./cards.js";
-import * as pages from "./pages.js";
+import { loadCorrectHTML } from "./router.js";
+import { checkCartIcon } from "./cart.js";
 import { db } from "./db.js";
+import { cart } from "./pages.js";
+
+// todo:
+// - cart page ~
+// - generating pages
+// - improve router
+// - correct json
+// - load json on server
+//      - fetch
+//      - loader
+// - overlook all the site
+// - regex inputs
 
 function parallax() {
-    if (document.querySelector(".actions .background") == null) { return; }
-    document.querySelector(".actions .background").style.transform = `translateY(${-250 + window.scrollY/4}px) rotateZ(7deg)`;
+    if (document.querySelector(".section1 .background") == null) { return; }
+    document.querySelector(".section1 .background").style.transform = `translateY(${-250 + window.scrollY / 4}px) rotateZ(7deg)`;
     window.addEventListener('scroll', e => {
-        document.querySelector(".actions .background").style.transform = `translateY(${-250 + window.scrollY/4}px) rotateZ(7deg)`;
+        if (document.querySelector(".section1 .background") == null) { return; }
+        document.querySelector(".section1 .background").style.transform = `translateY(${-250 + window.scrollY / 4}px) rotateZ(7deg)`;
     });
 }
 
 function sidebar() {
-    document.querySelectorAll(".menu-button").forEach(element => {
-        element.addEventListener('click', (e) => {
-            let sidebar = document.querySelector("#sidebar");
-            sidebar.className = sidebar.className == "active" ? "" : "active";
-        });
+    document.getElementById("header-menu-button").addEventListener('click', (e) => {
+        let sidebar = document.querySelector("#sidebar");
+        sidebar.className = sidebar.className == "active" ? "" : "active";
     });
 
     document.getElementById("redirect-main").addEventListener('click', (e) => { redirect("") });
     document.getElementById("redirect-catalog").addEventListener('click', (e) => { redirect("catalog") });
-    document.getElementById("redirect-cart").addEventListener('click', (e) => { redirect("cart") });
+    document.getElementById("redirect-action").addEventListener('click', (e) => { redirect("action") });
 }
 
-function createPizzas() {
-    createCard("pizza1", "img/pizza/vegeterian.png", "Vegeterian", "Meat, Cheese, Peperoni, Pepper, Tomatoes", 15);
-    createCard("pizza2", "img/pizza/olive.png", "Olive", "Camembert, Chevre, Mozzarella, Onions, Parsley", 25);
-    createCard("pizza3", "img/pizza/mexican.png", "Mexican", "Chicken, Pineapple, Parsley, Onions, Cheese", 10);
+function sales() {
+    let sales = document.querySelector(".sales");
+    if (sales == null) { return; }
+    let html = ``;
+    for(let i = 0; i < db.actions.length; i++){
+        let action = db.actions[i];
+        html += `
+    <div class="sale" style="background-color: ${action.color};">
+        <div class="image" style="background: url(${action.image}) 100% 100% no-repeat; background-size: cover;"></div>
+        <div class="text-container">
+            <h2>${action.name}</h2>
+            <h3>${action.description}</h3>
+        </div>
+    </div>`;
+    }
+    sales.innerHTML = html;
 
-    createCard("pizza4", "img/pizza/vegeterian.png", "Vegeterian", "Meat, Cheese, Peperoni, Pepper, Tomatoes");
-    createCard("pizza5", "img/pizza/olive.png", "Olive", "Camembert, Chevre, Mozzarella, Onions, Parsley");
-    createCard("pizza6", "img/pizza/mexican.png", "Mexican", "Chicken, Pineapple, Parsley, Onions, Cheese");
-
-    createCard("pizza7", "img/pizza/vegeterian.png", "Vegeterian", "Meat, Cheese, Peperoni, Pepper, Tomatoes");
-    createCard("pizza8", "img/pizza/olive.png", "Olive", "Camembert, Chevre, Mozzarella, Onions, Parsley");
-    createCard("pizza9", "img/pizza/mexican.png", "Mexican", "Chicken, Pineapple, Parsley, Onions, Cheese");
+    for (let i = 0; i < db.actions.length; i++) {
+        sales.children[i].addEventListener('click', e => redirect(`action/${db.actions[i].url}`));
+    }
 }
 
-function redirect(hash) {
+function cartConnect() {
+    document.getElementById("cart-button").addEventListener('click', (e) => {
+        redirect("cart");
+    });
+}
+
+export function redirect(hash) {
     window.location.hash = hash;
     onHashChange();
 }
@@ -46,40 +71,21 @@ function loadJSON() { // todo: recreate with real db
     globalObj.db = db;
 }
 
-function generateStatusPage() {
-    let textHTML = ""
-        // ... todo
-    return textHTML;
-}
-
-function loadCorrectHTML() {
-    let hash = window.location.hash;
-    switch (hash) {
-        case "":
-            document.querySelector("main").innerHTML = pages.mainHTML;
-            return;
-        case "#catalog":
-            document.querySelector("main").innerHTML = pages.catalogHTML;
-            return;
-        default:
-            window.location.hash = ""
-            document.querySelector("main").innerHTML = pages.mainHTML;
-            return;
-    }
-}
-
 function onHashChange() {
     loadJSON();
-    // loadCorrectHTML(); // todo
+    loadCorrectHTML(globalObj); // todo
+    checkCartIcon(globalObj);
+    sales();
     parallax();
-    createPizzas();
 }
 
-var globalObj = {
-    db: {}
+export var globalObj = {
+    db: {},
+    localStorageInfo: []
 };
 
 (function start() {
     onHashChange();
     sidebar();
+    cartConnect();
 })()

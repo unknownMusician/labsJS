@@ -1,3 +1,7 @@
+import { redirect } from "./main.js";
+import { addToCart } from "./cart.js";
+import { globalObj } from "./main.js";
+
 function getElements(containerId) {
     return {
         card: document.querySelector(`#${containerId} .pizza-card`),
@@ -7,7 +11,8 @@ function getElements(containerId) {
         pizza: document.querySelector(`#${containerId} .pizza`),
         purchase: document.querySelector(`#${containerId} .purchase button`),
         ingredients: document.querySelector(`#${containerId} .pizza-info h3`),
-        sizes: document.querySelector(`#${containerId} .sizes`)
+        sizes: document.querySelector(`#${containerId} .sizes`),
+        sizeButtons: document.querySelectorAll(`#${containerId} .sizes button`)
     }
 }
 
@@ -48,52 +53,68 @@ function setAnimationMouse(elements) {
     });
 }
 
-function start(containerId) {
+function getActiveSizeId(elements) {
+    let btns = Array.from(elements.sizeButtons);
+    return btns.indexOf(btns.find((element, index, array) => element.className == "active"));
+}
+
+function setButtonsClickListeners(productId, elements) {
+    for (let i = 0; i < elements.sizeButtons.length; i++) {
+        let button = elements.sizeButtons[i];
+        button.addEventListener('click', (e) => {
+            elements.purchase.innerHTML = `₴ ${globalObj.db.products[productId].prices[i]} - Purchase`;
+
+            elements.sizeButtons.forEach(button => { button.classList.remove("active"); });
+            button.classList.add("active");
+        });
+    }
+
+    elements.purchase.addEventListener('click', e => {
+        addToCart(productId, getActiveSizeId(elements));
+    });
+
+    elements.pizza.addEventListener('click', e => {
+        redirect(`product/${globalObj.db.products[productId].url}`);
+    });
+}
+
+function start(containerId, productId) {
     const elements = getElements(containerId);
 
     setAnimationMouse(elements);
     setAnimationIn(elements);
     setAnimationOut(elements);
-
-    let sizeButtons = document.querySelectorAll(`#${containerId} .sizes button`);
-
-    sizeButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            console.log("click");
-            sizeButtons.forEach(button => {
-                button.classList.remove("active");
-            });
-            button.classList.add("active");
-        });
-    });;
+    setButtonsClickListeners(productId, elements);
 }
 
-export function createCard(id, imgSrc, title, ingredients, discount = 0) {
-    let container = document.getElementById(id);
+export function createCard(htmlId, productId) {
+    let db = globalObj.db;
+    let dbProduct = db.products[productId];
+    let container = document.getElementById(htmlId);
     if (container == null) { return; }
     container.classList.add("pizza-container");
     container.innerHTML =
         `<div class="pizza-card">` +
-        (discount == 0 ? `` : `<div class="discount-container"><div class="discount">- ${discount}%</div></div>`) +
+        (dbProduct.discount == 0 ? `` : `<div class="discount-container"><div class="discount">- ${dbProduct.discount}%</div></div>`) +
         `<div class="pizza">
         <div class="circle"></div>
-        <img src="${imgSrc}" alt="pizza">
+        <img src="${dbProduct.image}" alt="pizza">
     </div>
 <div class="pizza-info">
-    <h2 class="title">${title}</h2>
-        <h3>${ingredients}</h3>
+    <h2 class="title">${dbProduct.productName}</h2>
+        <h3>${dbProduct.productIngredients}</h3>
         <div class="sizes">
-            <button>25 cm</button>
-            <button>30 cm</button>
-            <button class="active">35 cm</button>
-            <button>40 cm</button>
+            <button>${db.sizes[0]} cm</button>
+            <button>${db.sizes[1]} cm</button>
+            <button class="active">${db.sizes[2]} cm</button>
+            <button>${db.sizes[3]} cm</button>
         </div>
         <div class="purchase">
-            <button>Purchase</button>
+            <button>₴ ${dbProduct.prices[2]} - Purchase</button>
         </div>
     </div>
 </div>`;
 
-    start(id);
+    start(htmlId, productId);
 
 }
