@@ -514,7 +514,7 @@ export function generateCart(db, localStorageInfo) {
     }
     
     document.getElementsByTagName('form')[0].addEventListener('submit', e => {
-        e.preventDefault;
+        e.preventDefault();
 
         let obj = {
             phone: document.getElementById("phone").value,
