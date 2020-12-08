@@ -1,6 +1,11 @@
 * {
     font-family: "Texturina";
-transition: 0.1s;}
+    transition: 0.1s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     transition: 0.1s;
@@ -16,23 +21,25 @@ header {
     background: white;
     border-bottom: 2px solid #eee;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.02);
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 header h1 {
     font-size: 3rem;
     line-height: 3rem;
-    /* align-items: center;
-    justify-content: center; */
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 header img {
     width: 4rem;
     padding: 0.5vw;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 header div>div {
     padding: 0.5vw;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .menu-button {
     width: 3rem;
@@ -41,16 +48,19 @@ transition: 0.1s;}
     justify-content: center;
     background: none;
     transition: 0.5s;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .menu-button:hover {
     background: #f2f2f2;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .menu-button img {
     width: 3rem;
     padding: 0.4rem;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 #cart-counter {
     top: 0.27rem;
@@ -65,13 +75,15 @@ transition: 0.1s;}
     line-height: 1rem;
     transition: 0.5s;
     border: 1px solid transparent;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 #cart-button:hover #cart-counter {
     color: #f54642;
     background: white;
     border: 1px solid #f54642;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .menu-button-anim {
     margin-top: 10%;
@@ -79,15 +91,18 @@ transition: 0.1s;}
     margin-left: 25%;
     width: 50%;
     height: 3px;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 #header-menu-button .menu-button-anim {
     background-color: black;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .section3 .title-container h1 {
     color: white;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .title-container {
     margin: 6rem 0 2rem 0;
@@ -96,24 +111,28 @@ transition: 0.1s;}
     justify-content: center;
     align-items: center;
     flex-direction: column;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .title-container:after {
     content: "  •  ";
     font-size: 4rem;
     color: #666;
     z-index: 1;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .title-container h1 {
     padding-bottom: 40px;
     border-bottom: 1px solid #ccc;
     z-index: 1;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 h1 {
     font-size: 8rem;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .footer-text {
     margin-top: 10rem;
@@ -123,36 +142,42 @@ transition: 0.1s;}
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .footer-text h2 {
     padding: 3rem 5rem;
     font-size: 2rem;
     z-index: 5;
     color: white;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 h3 a {
     color: #bbb;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .footer-text h3 {
     padding: 0.5rem 5rem;
     font-size: 1.2rem;
     z-index: 5;
     color: #888;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 footer {
     width: 100%;
     height: 30rem;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .category {
     display: flex;
     justify-content: center;
     align-items: center;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .category button {
     padding: 0.5rem 4rem;
@@ -162,30 +187,36 @@ transition: 0.1s;}
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
     z-index: 2;
     transition: 0.5s;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .category button:hover {
     padding: 0.5rem 6rem;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .section1 .category button {
     background: #f54642;
     color: white;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .section2 .category button {
     background: white;
     color: #f54642;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .section3 .category button {
     background: white;
     color: #6236c5;
-transition: 0.1s;}
+    transition: 0.1s;
+}
 
 .loader-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 1000px;
-transition: 0.5s;
+    transition: 0.5s;
+}

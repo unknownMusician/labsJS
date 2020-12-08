@@ -1,0 +1,28 @@
+.status-container {
+    padding: 10rem 40rem;
+    width: 100%;
+    height: 60rem;
+}
+
+.status {
+    width: 100%;
+    height: 100%;
+    padding: 3rem;
+    background: white;
+    border-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2) inset;
+}
+
+.status h1 {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid black;
+}
+
+.status h2 {
+    font-size: 2rem;
+    margin-bottom: 5rem;
+}

@@ -1,5 +1,5 @@
 import { createCard } from "./cards.js";
-import { redirect } from "./main.js";
+import { redirect, sendToServer } from "./main.js";
 
 export const mainHTML = `
 <section class="actions">
@@ -306,7 +306,7 @@ export function generateMain(db) {
     for (let i = 0; i < db.recommendations.length; i++) {
         createCard(`pizza${i}`, db.recommendations[i]);
     }
-} // +
+}
 
 export function generateCatalog(db) {
     let main = ``;
@@ -350,7 +350,7 @@ export function generateCatalog(db) {
             redirect(`catalog/${db.productsCategories[i].url}`)
         });
     }
-} // +
+}
 
 export function generateSale(db, id) {
     let action = db.actions[id];
@@ -399,7 +399,7 @@ export function generateCategory(db, id) {
     for (let i = 0; i < prods.length; i++) {
         createCard(`pizza${i}`, prods[i]);
     }
-} // +
+}
 
 export function generateProduct(db, id) {
     let prod = db.products[id];
@@ -452,12 +452,12 @@ export function generateCart(db, localStorageInfo) {
                     <div class="title">Contacts</div>
                     <div class="inputs">
                         <div class="field">
-                            <h2>Phone</h2>
-                            <input type="tel" placeholder="+380123456789">
+                            <h2>Phone *</h2>
+                            <input id="phone" type="text" placeholder="+380123456789" pattern="[+][0-9]{12}" required>
                         </div>
                         <div class="field">
                             <h2>E-mail</h2>
-                            <input type="email" placeholder="example@example.com">
+                            <input id="email" type="text" placeholder="example@example.com" pattern="[a-z_.0-9]+[@][a-z]+[.][a-z]+">
                         </div>
                     </div>
                 </section>
@@ -465,16 +465,16 @@ export function generateCart(db, localStorageInfo) {
                     <div class="title">Customer</div>
                     <div class="inputs">
                         <div class="field">
-                            <h2>Name</h2>
-                            <input type="text" placeholder="Name">
+                            <h2>Name *</h2>
+                            <input id="name" type="text" placeholder="Name" placeholder="[A-Z][a-z]+" required>
                         </div>
                         <div class="field">
                             <h2>Surname</h2>
-                            <input type="text" placeholder="Surname">
+                            <input id="surname" type="text" placeholder="Surname" placeholder="[A-Z][a-z]+">
                         </div>
                         <div class="field">
-                            <h2>Address</h2>
-                            <input type="text" placeholder="Address">
+                            <h2>Address *</h2>
+                            <input id="address" type="text" placeholder="Address" required>
                         </div>
                     </div>
                 </section>
@@ -482,16 +482,19 @@ export function generateCart(db, localStorageInfo) {
                     <div class="title">Order details</div>
                     <div class="inputs">
                         <div class="field">
-                            <h2>Date</h2>
-                            <input type="date" placeholder="dd.mm">
+                            <h2>Date *</h2>
+                            <input id="date" type="date" placeholder="dd.mm" required>
                         </div>
                         <div class="field">
-                            <h2>Time</h2>
-                            <input type="time" placeholder="hh:mm">
+                            <h2>Time *</h2>
+                            <input id="time" type="time" placeholder="hh:mm" required>
                         </div>
                         <div class="field">
                             <h2>Payment</h2>
-                            <input type="text" placeholder="Payment">
+                            <select id="payment" required>
+                                <option>Cash</option>
+                                <option>Card</option>
+                            </select>
                         </div>
                     </div>
                 </section>
@@ -504,6 +507,28 @@ export function generateCart(db, localStorageInfo) {
     </div>
     `;
     document.getElementsByTagName("main")[0].innerHTML = main;
+
+    let inputs = document.getElementsByTagName("input");
+    for(let i = 0; i < inputs.length; i++) {
+        inputs[i].oninvalid = (e) => { e.target.style.borderBottom = "2px solid #f54642"; console.log(2); };
+    }
+    
+    document.getElementsByTagName('form')[0].addEventListener('submit', e => {
+        e.preventDefault;
+
+        let obj = {
+            phone: document.getElementById("phone").value,
+            email: document.getElementById("email").value,
+            name: document.getElementById("name").value,
+            surname: document.getElementById("surname").value,
+            address: document.getElementById("address").value,
+            date: document.getElementById("date").value,
+            time: document.getElementById("time").value,
+            payment: document.getElementById("payment").value,
+        };
+
+        sendToServer(obj);
+    });
 }
 
 export function generateActions() {
@@ -547,6 +572,25 @@ export function generateAction(db, id) {
         </div>
     </section>
     `;
+}
+
+export function generateStatus(isSuccess) {
+    let main = `
+    <section class="section1">
+        <div class="background-container-outer" style="height: 1000px;">
+            <div class="background-container-inner">
+                <div class="background"></div>
+            </div>
+        </div>
+        <div class="status-container">
+            <div class="status">
+                <h1>${isSuccess ? "Success" : "Error"}</h1 style="border-bottom: 2px solid ${isSuccess ? "yellowgreen" : "red"};">
+                <h2>${isSuccess ? "Your order has been recieved" : "Something went wrong"}</h2>
+            </div>
+        </div>
+    </section>
+    `;
+    document.getElementsByTagName("main")[0].innerHTML = main;
 }
 
 function float2price(num) {

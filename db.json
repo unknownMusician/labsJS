@@ -1,64 +1,169 @@
 {
     "products": [
         {
-            "url": "vegeterian",
-            "productName": "Vegeterian",
-            "productDescription": "Very delicious and perfect for big companies pizza...",
-            "productIngredients": "Olive, Meat, Cheese, Green",
+            "url": "carbonara",
+            "productName": "Carbonara",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "Pancetta, Pecorino, Parmesan, Spaghetti, Garlic, Pepper",
             "prices": [
-                75.25,
-                105.05,
-                150.64,
-                210.01
+                72.51,
+                108.75,
+                145.05,
+                181.25
             ],
-            "image": "img/pizza/vegeterian.png",
+            "image": "img/pizza/carbonara.png",
             "categoryId": 0,
             "discount": 10
         },
         {
-            "url": "olive",
-            "productName": "Olive",
-            "productDescription": "Very delicious and perfect for big companies pizza...",
-            "productIngredients": "Meat, Cheese, Peperoni, Pepper, Tomatoes",
+            "url": "fish",
+            "productName": "Fish",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "Bertoll, Olives, Capers, Pizza crusts, Basil",
             "prices": [
-                81.52,
-                125.05,
-                175.45,
-                215.85
+                85.05,
+                110.56,
+                140.07,
+                180.75
             ],
-            "image": "img/pizza/olive.png",
-            "categoryId": 0,
-            "discount": 15
+            "image": "img/pizza/fish.png",
+            "categoryId": 1,
+            "discount": 0
         },
         {
-            "url": "mexican",
-            "productName": "Mexican",
-            "productDescription": "Very delicious and perfect for big companies pizza...",
-            "productIngredients": "Camembert, Chevre, Mozzarella, Onions, Parsley",
+            "url": "margarita",
+            "productName": "Margarita",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "",
             "prices": [
-                101.76,
-                135.05,
-                195.05,
-                245.72
+                81.65,
+                122.48,
+                163.35,
+                204.13
             ],
-            "image": "img/pizza/mexican.png",
-            "categoryId": 1,
+            "image": "img/pizza/margarita.png",
+            "categoryId": 2,
             "discount": 5
         },
         {
             "url": "mexican",
             "productName": "Mexican",
-            "productDescription": "Very delicious and perfect for big companies pizza...",
-            "productIngredients": "Chicken, Pineapple, Parsley, Onions, Cheese",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "",
             "prices": [
-                125.31,
-                155.05,
-                200.05,
-                270.45
+                91.74,
+                137.61,
+                183.48,
+                229.35
+            ],
+            "image": "img/pizza/mexican.png",
+            "categoryId": 0,
+            "discount": 20
+        },
+        {
+            "url": "mushroom",
+            "productName": "Mushroom",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "",
+            "prices": [
+                68.58,
+                102.87,
+                137.16,
+                171.45
+            ],
+            "image": "img/pizza/mushroom.png",
+            "categoryId": 1,
+            "discount": 5
+        },
+        {
+            "url": "newYork",
+            "productName": "New-York",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "",
+            "prices": [
+                76.21,
+                114.32,
+                152.42,
+                190.53
+            ],
+            "image": "img/pizza/newYork.png",
+            "categoryId": 2,
+            "discount": 0
+        },
+        {
+            "url": "olive",
+            "productName": "Olive",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "",
+            "prices": [
+                86.75,
+                130.13,
+                173.56,
+                216.88
+            ],
+            "image": "img/pizza/olive.png",
+            "categoryId": 0,
+            "discount": 10
+        },
+        {
+            "url": "salyami",
+            "productName": "Salyami",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "",
+            "prices": [
+                62.23,
+                93.35,
+                124.46,
+                155.58
+            ],
+            "image": "img/pizza/salyami.png",
+            "categoryId": 1,
+            "discount": 0
+        },
+        {
+            "url": "shrimp",
+            "productName": "Shrimp",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "",
+            "prices": [
+                110.56,
+                165.84,
+                221.12,
+                276.4
+            ],
+            "image": "img/pizza/shrimp.png",
+            "categoryId": 2,
+            "discount": 0
+        },
+        {
+            "url": "sicylian",
+            "productName": "Sicylian",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "",
+            "prices": [
+                94.35,
+                141.53,
+                188.74,
+                235.88
+            ],
+            "image": "img/pizza/sicylian.png",
+            "categoryId": 0,
+            "discount": 7
+        },
+        {
+            "url": "vegeterian",
+            "productName": "Vegeterian",
+            "productDescription": "Wonderful taste with maximum of delight",
+            "productIngredients": "",
+            "prices": [
+                74.61,
+                111.92,
+                149.22,
+                186.53
             ],
             "image": "img/pizza/vegeterian.png",
-            "categoryId": 2,
-            "discount": 20
+            "categoryId": 1,
+            "discount": 0
         }
     ],
     "productsCategories": [

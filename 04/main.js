@@ -1,16 +1,11 @@
 import { loadCorrectHTML } from "./router.js";
 import { checkCartIcon } from "./cart.js";
 import { db } from "./db.js";
-import { cart } from "./pages.js";
+import { generateStatus } from "./pages.js";
 
 // todo:
-// - hide sidebar
 // - add pizzas to db
-// - localStorage
 // - overlook all the site
-// - cart page
-//      - regex inputs
-// - error/success page
 
 function parallax() {
     if (document.querySelector(".section1 .background") == null) { return; }
@@ -27,9 +22,18 @@ function sidebar() {
         sidebar.className = sidebar.className == "active" ? "" : "active";
     });
 
-    document.getElementById("redirect-main").addEventListener('click', (e) => { redirect("") });
-    document.getElementById("redirect-catalog").addEventListener('click', (e) => { redirect("catalog") });
-    document.getElementById("redirect-action").addEventListener('click', (e) => { redirect("action") });
+    document.getElementById("redirect-main").addEventListener('click', (e) => {
+        redirect("");
+        document.querySelector("#sidebar").className = "";
+    });
+    document.getElementById("redirect-catalog").addEventListener('click', (e) => {
+        redirect("catalog");
+        document.querySelector("#sidebar").className = "";
+    });
+    document.getElementById("redirect-action").addEventListener('click', (e) => {
+        redirect("action");
+        document.querySelector("#sidebar").className = "";
+    });
 }
 
 function sales() {
@@ -52,6 +56,22 @@ function sales() {
     for (let i = 0; i < db.actions.length; i++) {
         sales.children[i].addEventListener('click', e => redirect(`action/${db.actions[i].url}`));
     }
+
+    var index = 1;
+
+    globalObj.scrollId = setInterval(() => {
+        console.log(sales.firstElementChild);
+        sales.scroll(0, 560 * index);
+        if (index < sales.children.length - 1) {
+            index++;
+        } else {
+            index = 0;
+        }
+    }, 4000);
+}
+
+async function scrollEasy(current, target, time) {
+
 }
 
 function cartConnect() {
@@ -64,6 +84,36 @@ export function redirect(hash) {
     window.location.hash = hash;
     onHashChange();
     console.log("redirect");
+}
+
+export function saveToLocalStorage() {
+    let jsonInfo = JSON.stringify(globalObj.localStorageInfo);
+    localStorage.setItem("medievalPizzaInfo", jsonInfo);
+}
+
+export function loadFromLocalStorage() {
+    let jsonInfo = localStorage.getItem("medievalPizzaInfo");
+    console.log(jsonInfo);
+    if (jsonInfo == null) {
+        globalObj.localStorageInfo = [];
+        return;
+    }
+    globalObj.localStorageInfo = JSON.parse(jsonInfo);
+}
+
+function clearLocalStorage() {
+    localStorage.removeItem("medievalPizzaInfo");
+}
+
+export async function sendToServer(order) {
+
+    await fetch(`https://my-json-server.typicode.com/nekt2111/labsJS/pizzas`, {
+        method: 'POST',
+        body: JSON.stringify(order)
+    }).then(response => {
+        generateStatus(response.ok);
+        if (response.ok) { clearLocalStorage(); }
+    })
 }
 
 function enableLoader() {
@@ -79,7 +129,7 @@ function disableLoader() {
 }
 
 async function loadJSON() {
-    enableLoader(); // todo: recreate with real db
+    enableLoader();
     let response = await fetch("https://my-json-server.typicode.com/unknownMusician/labsJS/db");
 
     let json = await response.json();
@@ -95,8 +145,10 @@ function onHashChange() {
 }
 
 function afterJsonLoad() {
+    loadFromLocalStorage();
     window.scrollTo(0, 0);
-    loadCorrectHTML(globalObj); // todo
+    clearInterval(globalObj.scrollId);
+    loadCorrectHTML(globalObj);
     checkCartIcon(globalObj);
     sales();
     parallax();
@@ -104,7 +156,8 @@ function afterJsonLoad() {
 
 export var globalObj = {
     db: {},
-    localStorageInfo: []
+    localStorageInfo: [],
+    scrollId: null
 };
 
 (function start() {

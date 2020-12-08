@@ -1,4 +1,4 @@
-import { globalObj } from "./main.js";
+import { globalObj, saveToLocalStorage } from "./main.js";
 
 export function addToCart(productId, sizeId) {
     let el = globalObj.localStorageInfo.find((element, index, array) => (element.product == productId) && (element.size == sizeId));
@@ -12,9 +12,12 @@ export function addToCart(productId, sizeId) {
         });
     }
     checkCartIcon(globalObj);
+    saveToLocalStorage();
 }
 
 export function checkCartIcon(globalObj) {
     document.getElementById("cart-counter").style.visibility = globalObj.localStorageInfo.length > 0 ? "visible" : "hidden";
-    document.getElementById("cart-counter").innerHTML = globalObj.localStorageInfo.length > 9 ? '+' : globalObj.localStorageInfo.length;
+    let cartSize = 0;
+    globalObj.localStorageInfo.forEach(element => { cartSize += element.count; });
+    document.getElementById("cart-counter").innerHTML = cartSize > 9 ? '+' : cartSize;
 }
