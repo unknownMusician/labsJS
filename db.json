@@ -5,9 +5,18 @@
             "productName": "Vegeterian",
             "productDescription": "Very delicious and perfect for big companies pizza...",
             "productIngredients": "Olive, Meat, Cheese, Green",
-            "prices": [75.25, 105.05, 150.64, 210.01],
+            "prices": [
+                75.25,
+                105.05,
+                150.64,
+                210.01
+            ],
             "image": "img/pizza/vegeterian.png",
-            "relatedProductIds": [1, 2, 3],
+            "relatedProductIds": [
+                1,
+                2,
+                3
+            ],
             "categoryId": 0,
             "discount": 10
         },
@@ -16,9 +25,18 @@
             "productName": "Olive",
             "productDescription": "Very delicious and perfect for big companies pizza...",
             "productIngredients": "Meat, Cheese, Peperoni, Pepper, Tomatoes",
-            "prices": [81.52, 125.05, 175.45, 215.85],
+            "prices": [
+                81.52,
+                125.05,
+                175.45,
+                215.85
+            ],
             "image": "img/pizza/olive.png",
-            "relatedProductIds": [0, 2, 3],
+            "relatedProductIds": [
+                0,
+                2,
+                3
+            ],
             "categoryId": 0,
             "discount": 15
         },
@@ -27,9 +45,18 @@
             "productName": "Mexican",
             "productDescription": "Very delicious and perfect for big companies pizza...",
             "productIngredients": "Camembert, Chevre, Mozzarella, Onions, Parsley",
-            "prices": [101.76, 135.05, 195.05, 245.72],
+            "prices": [
+                101.76,
+                135.05,
+                195.05,
+                245.72
+            ],
             "image": "img/pizza/mexican.png",
-            "relatedProductIds": [0, 1, 3],
+            "relatedProductIds": [
+                0,
+                1,
+                3
+            ],
             "categoryId": 1,
             "discount": 5
         },
@@ -38,9 +65,18 @@
             "productName": "Mexican",
             "productDescription": "Very delicious and perfect for big companies pizza...",
             "productIngredients": "Chicken, Pineapple, Parsley, Onions, Cheese",
-            "prices": [125.31, 155.05, 200.05, 270.45],
+            "prices": [
+                125.31,
+                155.05,
+                200.05,
+                270.45
+            ],
             "image": "img/pizza/vegeterian.png",
-            "relatedProductIds": [0, 1, 2],
+            "relatedProductIds": [
+                0,
+                1,
+                2
+            ],
             "categoryId": 2,
             "discount": 20
         }
@@ -62,7 +98,11 @@
             "description": "More details ... ",
         }
     ],
-    "recommendations": [0, 1, 2],
+    "recommendations": [
+        0,
+        1,
+        2
+    ],
     "actions": [
         {
             "url": "bring_friend",
@@ -87,5 +127,10 @@
         }
     ],
     "orders": [],
-    "sizes": [25, 30, 35, 40]
+    "sizes": [
+        25,
+        30,
+        35,
+        40
+    ]
 }
