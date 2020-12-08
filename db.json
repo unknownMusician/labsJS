@@ -34,7 +34,7 @@
             "url": "margarita",
             "productName": "Margarita",
             "productDescription": "Wonderful taste with maximum of delight",
-            "productIngredients": "",
+            "productIngredients": "Semilona, San Marzano, Garlic, Black pepper, Mozarella",
             "prices": [
                 81.65,
                 122.48,
@@ -49,7 +49,7 @@
             "url": "mexican",
             "productName": "Mexican",
             "productDescription": "Wonderful taste with maximum of delight",
-            "productIngredients": "",
+            "productIngredients": "Beand, Beef, Tortillas, Cheddar, Tomatoes, Avocado, Olives",
             "prices": [
                 91.74,
                 137.61,
@@ -64,7 +64,7 @@
             "url": "mushroom",
             "productName": "Mushroom",
             "productDescription": "Wonderful taste with maximum of delight",
-            "productIngredients": "",
+            "productIngredients": "Cremini mushrooms, Thyme, Oregano, Pepper, Pizza crust, Ricotta cheese",
             "prices": [
                 68.58,
                 102.87,
@@ -79,7 +79,7 @@
             "url": "newYork",
             "productName": "New-York",
             "productDescription": "Wonderful taste with maximum of delight",
-            "productIngredients": "",
+            "productIngredients": "Yeast, New-York sause, Mozarella",
             "prices": [
                 76.21,
                 114.32,
@@ -94,7 +94,7 @@
             "url": "olive",
             "productName": "Olive",
             "productDescription": "Wonderful taste with maximum of delight",
-            "productIngredients": "",
+            "productIngredients": "Mozarella, Red onions, Pepperoni, Black ripe olives",
             "prices": [
                 86.75,
                 130.13,
@@ -109,7 +109,7 @@
             "url": "salyami",
             "productName": "Salyami",
             "productDescription": "Wonderful taste with maximum of delight",
-            "productIngredients": "",
+            "productIngredients": "Salami, Clack pepper, Coriander leaves",
             "prices": [
                 62.23,
                 93.35,
@@ -124,7 +124,7 @@
             "url": "shrimp",
             "productName": "Shrimp",
             "productDescription": "Wonderful taste with maximum of delight",
-            "productIngredients": "",
+            "productIngredients": "Shrimp, Onions, Oregano, Pizza dough, Tomatoes",
             "prices": [
                 110.56,
                 165.84,
@@ -139,7 +139,7 @@
             "url": "sicylian",
             "productName": "Sicylian",
             "productDescription": "Wonderful taste with maximum of delight",
-            "productIngredients": "",
+            "productIngredients": "Tomatoes, Milk, Mozarella, Sause",
             "prices": [
                 94.35,
                 141.53,
@@ -154,7 +154,7 @@
             "url": "vegeterian",
             "productName": "Vegeterian",
             "productDescription": "Wonderful taste with maximum of delight",
-            "productIngredients": "",
+            "productIngredients": "Spinach, Mozarella, Artichoke, Pepper, Onions, Cherry tomatoes",
             "prices": [
                 74.61,
                 111.92,
@@ -162,8 +162,8 @@
                 186.53
             ],
             "image": "img/pizza/vegeterian.png",
-            "categoryId": 1,
-            "discount": 0
+            "categoryId": 0,
+            "discount": 5
         }
     ],
     "productsCategories": [
