@@ -596,8 +596,6 @@ export function generateStatus(isSuccess) {
 function float2price(num) {
     let rounded = Math.round(num * 100) / 100;
     let strings = rounded.toString().split('.');
-    console.log(strings);
-    console.log(2 - strings[1].length);
     if (strings.length > 1) {
         return strings[0] + '.' + (strings[1].length > 1 ? strings[1].substring(0, 2) : (strings[1] + '0' * (2 - strings[1].length)));
     } else {

@@ -60,7 +60,6 @@ function sales() {
     var index = 1;
 
     globalObj.scrollId = setInterval(() => {
-        console.log(sales.firstElementChild);
         sales.scroll(0, 560 * index);
         if (index < sales.children.length - 1) {
             index++;
@@ -83,7 +82,6 @@ function cartConnect() {
 export function redirect(hash) {
     window.location.hash = hash;
     onHashChange();
-    console.log("redirect");
 }
 
 export function saveToLocalStorage() {
@@ -93,7 +91,6 @@ export function saveToLocalStorage() {
 
 export function loadFromLocalStorage() {
     let jsonInfo = localStorage.getItem("medievalPizzaInfo");
-    console.log(jsonInfo);
     if (jsonInfo == null) {
         globalObj.localStorageInfo = [];
         return;
@@ -107,13 +104,17 @@ function clearLocalStorage() {
 
 export async function sendToServer(order) {
 
-    await fetch(`https://my-json-server.typicode.com/nekt2111/labsJS/pizzas`, {
+    let response = await fetch(`https://my-json-server.typicode.com/unknownMusician/labsJS/productsCategories`, {
         method: 'POST',
         body: JSON.stringify(order)
-    }).then(response => {
-        generateStatus(response.ok);
-        if (response.ok) { clearLocalStorage(); }
     })
+    generateStatus(response.ok);
+    if (response.ok) {
+        clearLocalStorage();
+        let id = Object.values(await response.json())[0];
+        console.log()
+        document.querySelector(".status h1").innerHTML = `Sucess #${id}`
+    }
 }
 
 function enableLoader() {
@@ -133,7 +134,6 @@ async function loadJSON() {
     let response = await fetch("https://my-json-server.typicode.com/unknownMusician/labsJS/db");
 
     let json = await response.json();
-    console.log(json);
     globalObj.db = json;
 
     disableLoader();

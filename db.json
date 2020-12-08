@@ -168,14 +168,17 @@
     ],
     "productsCategories": [
         {
+            "id": 0,
             "url": "sales",
             "name": "Sales"
         },
         {
+            "id": 1,
             "url": "best",
             "name": "Our Best"
         },
         {
+            "id": 2,
             "url": "futuristic",
             "name": "Futuristic"
         }
