@@ -85,17 +85,17 @@
         {
             "url": "sales",
             "name": "Sales",
-            "description": "More details ... ",
+            "description": "More details ... "
         },
         {
             "url": "best",
             "name": "Our Best",
-            "description": "More details ... ",
+            "description": "More details ... "
         },
         {
             "url": "futuristic",
             "name": "Futuristic",
-            "description": "More details ... ",
+            "description": "More details ... "
         }
     ],
     "recommendations": [

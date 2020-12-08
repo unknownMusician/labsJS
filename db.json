@@ -12,11 +12,6 @@
                 210.01
             ],
             "image": "img/pizza/vegeterian.png",
-            "relatedProductIds": [
-                1,
-                2,
-                3
-            ],
             "categoryId": 0,
             "discount": 10
         },
@@ -32,13 +27,89 @@
                 215.85
             ],
             "image": "img/pizza/olive.png",
-            "relatedProductIds": [
-                0,
-                2,
-                3
-            ],
             "categoryId": 0,
             "discount": 15
+        },
+        {
+            "url": "mexican",
+            "productName": "Mexican",
+            "productDescription": "Very delicious and perfect for big companies pizza...",
+            "productIngredients": "Camembert, Chevre, Mozzarella, Onions, Parsley",
+            "prices": [
+                101.76,
+                135.05,
+                195.05,
+                245.72
+            ],
+            "image": "img/pizza/mexican.png",
+            "categoryId": 1,
+            "discount": 5
+        },
+        {
+            "url": "mexican",
+            "productName": "Mexican",
+            "productDescription": "Very delicious and perfect for big companies pizza...",
+            "productIngredients": "Chicken, Pineapple, Parsley, Onions, Cheese",
+            "prices": [
+                125.31,
+                155.05,
+                200.05,
+                270.45
+            ],
+            "image": "img/pizza/vegeterian.png",
+            "categoryId": 2,
+            "discount": 20
         }
+    ],
+    "productsCategories": [
+        {
+            "url": "sales",
+            "name": "Sales",
+            "description": "More details ... "
+        },
+        {
+            "url": "best",
+            "name": "Our Best",
+            "description": "More details ... "
+        },
+        {
+            "url": "futuristic",
+            "name": "Futuristic",
+            "description": "More details ... "
+        }
+    ],
+    "recommendations": [
+        0,
+        1,
+        2
+    ],
+    "actions": [
+        {
+            "url": "bring_friend",
+            "name": "Improve your friendship!",
+            "description": "More details ... ",
+            "color": "#f54642",
+            "image": "img/actions/friends.jpg"
+        },
+        {
+            "url": "black_friday",
+            "name": "Black Friday here!",
+            "description": "More details ... ",
+            "color": "#111111",
+            "image": "img/actions/blackFriday.jpg"
+        },
+        {
+            "url": "christmas",
+            "name": "It's Christmas time!",
+            "description": "More details ... ",
+            "color": "blueviolet",
+            "image": "img/actions/christmas.jpg"
+        }
+    ],
+    "sizes": [
+        25,
+        30,
+        35,
+        40
     ]
 }
