@@ -25,6 +25,9 @@ function setAnimationOut(elements) {
         elements.title.style.transform = `translateZ(0px)`;
         elements.ingredients.style.transform = `translateZ(0px)`;
         elements.sizes.style.transform = `translateZ(0px)`;
+        for(let i = 0; i < elements.sizeButtons.length; i++) {
+            elements.sizeButtons[i].style.boxShadow = "0 5px 10px rgba(0, 0, 0, 0.2)";
+        }
         elements.purchase.style.transform = `translateZ(0px)`;
     });
 }
@@ -36,6 +39,9 @@ function setAnimationIn(elements) {
         elements.title.style.transform = `translateZ(80px)`;
         elements.ingredients.style.transform = `translateZ(60px)`;
         elements.sizes.style.transform = `translateZ(40px)`;
+        for(let i = 0; i < elements.sizeButtons.length; i++) {
+            elements.sizeButtons[i].style.boxShadow = "0 0px 20px rgba(0, 0, 0, 0.2)";
+        }
         elements.purchase.style.transform = `translateZ(30px)`;
     });
 }
@@ -70,6 +76,16 @@ function setButtonsClickListeners(productId, elements) {
     }
 
     elements.purchase.addEventListener('click', e => {
+        let keyframes = [
+            {width: '100%', backgroundColor: 'yellow', boxShadow: '0 0 10px 10px rgba(250, 250, 10, 0.5)'},
+            {width: '80%'},
+            {width: '100%'}
+        ]
+        let params = {
+            duration: 200,
+            easing: 'ease'
+        }
+        elements.purchase.animate(keyframes, params)
         addToCart(productId, getActiveSizeId(elements));
     });
 

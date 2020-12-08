@@ -78,7 +78,7 @@
     border-radius: 30px;
     font-weight: bold;
     color: #585858;
-    transition: 0.1s;
+    transition: 0.5s;
 }
 
 .sizes button.active {
@@ -88,6 +88,8 @@
 
 .purchase {
     margin-top: 4rem;
+    display: flex;
+    justify-content: center;
 }
 
 .purchase button {

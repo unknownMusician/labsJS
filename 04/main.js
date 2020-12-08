@@ -1,6 +1,5 @@
 import { loadCorrectHTML } from "./router.js";
 import { checkCartIcon } from "./cart.js";
-import { db } from "./db.js";
 import { generateStatus } from "./pages.js";
 
 // todo:
@@ -40,8 +39,8 @@ function sales() {
     let sales = document.querySelector(".sales");
     if (sales == null) { return; }
     let html = ``;
-    for (let i = 0; i < db.actions.length; i++) {
-        let action = db.actions[i];
+    for (let i = 0; i < globalObj.db.actions.length; i++) {
+        let action = globalObj.db.actions[i];
         html += `
     <div class="sale" style="background-color: ${action.color};">
         <div class="image" style="background: url(${action.image}) 100% 100% no-repeat; background-size: cover;"></div>
@@ -53,8 +52,8 @@ function sales() {
     }
     sales.innerHTML = html;
 
-    for (let i = 0; i < db.actions.length; i++) {
-        sales.children[i].addEventListener('click', e => redirect(`action/${db.actions[i].url}`));
+    for (let i = 0; i < globalObj.db.actions.length; i++) {
+        sales.children[i].addEventListener('click', e => redirect(`action/${globalObj.db.actions[i].url}`));
     }
 
     var index = 1;
@@ -69,8 +68,8 @@ function sales() {
     }, 4000);
 }
 
-async function scrollEasy(current, target, time) {
-
+function mainButton() {
+    document.querySelector("header div h1").addEventListener('click', e => redirect(""));
 }
 
 function cartConnect() {
@@ -164,4 +163,5 @@ export var globalObj = {
     onHashChange();
     sidebar();
     cartConnect();
+    mainButton();
 })()

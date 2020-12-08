@@ -324,7 +324,7 @@ export function generateCatalog(db) {
         </div>
         <div class="cards">`;
         let prods = [];
-        for (let j = 0; (j < db.products.length) && (prods.length < 4); j++) {
+        for (let j = 0; (j < db.products.length) && (prods.length < 3); j++) {
             if (db.products[j].categoryId == i) { prods.push(j); }
         }
         categories.push(prods);

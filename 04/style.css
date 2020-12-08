@@ -28,6 +28,7 @@ header h1 {
     font-size: 3rem;
     line-height: 3rem;
     transition: 0.1s;
+    cursor: pointer;
 }
 
 header img {
