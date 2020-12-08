@@ -169,18 +169,15 @@
     "productsCategories": [
         {
             "url": "sales",
-            "name": "Sales",
-            "description": "More details ... "
+            "name": "Sales"
         },
         {
             "url": "best",
-            "name": "Our Best",
-            "description": "More details ... "
+            "name": "Our Best"
         },
         {
             "url": "futuristic",
-            "name": "Futuristic",
-            "description": "More details ... "
+            "name": "Futuristic"
         }
     ],
     "recommendations": [
@@ -192,21 +189,21 @@
         {
             "url": "bring_friend",
             "name": "Improve your friendship!",
-            "description": "More details ... ",
+            "description": "Bring a friend with you and get a 45% discount on the second pizza you order. The action is active every friday!",
             "color": "#f54642",
             "image": "img/actions/friends.jpg"
         },
         {
             "url": "black_friday",
             "name": "Black Friday here!",
-            "description": "More details ... ",
+            "description": "Hold your head! There are a lot of sales coming blask friday. Enable e-mail notificatein to save some money on things you need!",
             "color": "#111111",
             "image": "img/actions/blackFriday.jpg"
         },
         {
             "url": "christmas",
             "name": "It's Christmas time!",
-            "description": "More details ... ",
+            "description": "Christmas is a wonderful time to meet, bring gifts and, of cource, EAT PIZZA. Spend christmas with us and we promise - you will not regret!",
             "color": "blueviolet",
             "image": "img/actions/christmas.jpg"
         }
