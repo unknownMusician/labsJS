@@ -4,13 +4,9 @@ import { db } from "./db.js";
 import { cart } from "./pages.js";
 
 // todo:
-// - scroll up
 // - hide sidebar
 // - add pizzas to db
 // - localStorage
-// - load json on server
-//      - fetch
-//      - loader
 // - overlook all the site
 // - cart page
 //      - regex inputs
@@ -40,7 +36,7 @@ function sales() {
     let sales = document.querySelector(".sales");
     if (sales == null) { return; }
     let html = ``;
-    for(let i = 0; i < db.actions.length; i++){
+    for (let i = 0; i < db.actions.length; i++) {
         let action = db.actions[i];
         html += `
     <div class="sale" style="background-color: ${action.color};">
@@ -67,14 +63,39 @@ function cartConnect() {
 export function redirect(hash) {
     window.location.hash = hash;
     onHashChange();
+    console.log("redirect");
 }
 
-function loadJSON() { // todo: recreate with real db
-    globalObj.db = db;
+function enableLoader() {
+    document.getElementsByTagName("main")[0].innerHTML = `
+    <div class="loader-container">
+    <img src="img/icons/loader.gif" alt="" />
+    </div>
+    `;
+}
+
+function disableLoader() {
+    document.getElementsByTagName("main")[0].innerHTML = ``;
+}
+
+async function loadJSON() {
+    enableLoader(); // todo: recreate with real db
+    let response = await fetch("https://my-json-server.typicode.com/unknownMusician/labsJS/db");
+
+    let json = await response.json();
+    console.log(json);
+    globalObj.db = json;
+
+    disableLoader();
+    afterJsonLoad();
 }
 
 function onHashChange() {
     loadJSON();
+}
+
+function afterJsonLoad() {
+    window.scrollTo(0, 0);
     loadCorrectHTML(globalObj); // todo
     checkCartIcon(globalObj);
     sales();
